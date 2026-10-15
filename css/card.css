@@ -1,0 +1,193 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    font-family: "Inter", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.products {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(180deg, #E7F3FF 0%, #CFE7FF 100%);
+}
+
+
+.wrapper {
+    max-width: 1100px;
+    padding: 20px 10px;
+    margin: 0 60px 35px;
+    overflow: hidden;
+}
+
+.products .container .section-header{
+    margin-bottom: 10px;
+}
+.products .container .section-header h2{
+    color: var(--title-color);
+}
+.products .container .section-header p{
+    color: var(--text-color);
+    font-size: 2rem;
+}
+
+.wrapper .card {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 10px 10px rgb(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+
+}
+
+.wrapper .card:hover {
+    transform: translateY(-10px);
+}
+
+.card-content h3 {
+    font-family: "Montserrat", sans-serif;
+}
+
+.card .card-image {
+    position: relative;
+}
+
+.card .card-image img {
+    border-radius: 22px;
+    padding: 10px;
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+}
+
+.card .card-image .card-tag {
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    border-radius: 30px;
+    font-weight: 700;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+    padding: 5px 15px;
+    color: #6366f1;
+    background: rgba(255, 255, 255, 0.725);
+    clip-path: polygon(0 0, 0 0, 0 0, 0% 0);
+
+
+}
+
+.card:hover .card-tag {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+.card .card-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 25px 25px;
+}
+
+.card .card-content .card-title {
+    color: #111111;
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 15px;
+}
+
+.card .card-content .card-text {
+    color: #747474;
+    font-size: 1.5rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+.card .card-content .card-footer {
+    display: flex;
+    align-items: center;
+    padding-top: 15px;
+    margin-top: auto;
+    justify-content: center;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.card .card-content .card-footer .card-button {
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-weight: 600;
+    text-decoration: none;
+    background: linear-gradient(135deg, #f4b400 0%, #ffcc33 100%);
+    box-shadow: 0 8px 15px rgba(99, 102, 241, 0.2);
+    transition: all 0.3s ease;
+    font-size: 1.5rem;
+}
+
+.card .card-content .card-footer .card-button:hover {
+    background: white;
+    color: var(--title-color);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(90, 102, 241, 0.3)
+}
+
+.wrapper .swiper-pagination-bullet {
+    height: 15px;
+    width: 15px;
+    overflow: hidden;
+    opacity: 1;
+    background: #ff6a005f;
+}
+
+.wrapper .swiper-pagination-bullet-active::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background: #f4b400;
+    transform: scaleX(0);
+    transform-origin: left center;
+    animation: autoplay-loading 5s linear forwards;
+}
+
+.container:hover .wrapper .swiper-pagination-bullet-active::before {
+    animation-play-state: paused;
+}
+
+@keyframes autoplay-loading {
+    100% {
+        transform: scaleX(1);
+    }
+}
+
+.wrapper :where(.swiper-button-prev, .swiper-button-next) {
+    color: #FF6A00 !important;
+    margin-top: -35px;
+    transition: all 0.3s ease;
+}
+
+.wrapper :where(.swiper-button-prev, .swiper-button-next):hover {
+    color: #FF6A00;
+    background-color: #309ede81;
+    padding: 1rem;
+}
+
+
+@media (max-width: 768px) {
+    .wrapper {
+        margin: 0 10px 25px;
+    }
+
+    .wrapper .swiper-button-prev,
+    .wrapper .swiper-button-next {
+        display: none !important;
+    }
+}
