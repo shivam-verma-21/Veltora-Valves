@@ -260,6 +260,10 @@
     display: block;
 }
 
+.strong{
+    font-weight: 600;
+}
+
 .ball-card strong {
     margin-bottom: 0.4rem;
     font-size: 1.3rem;
@@ -584,6 +588,10 @@
     gap: 2.5rem;
 }
 
+.ball-products-grid.gate-valve, .ball-products-grid.globe-valve {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
 /* CATEGORY CARD */
 
 .ball-product-card {
@@ -817,7 +825,7 @@
 
 .ball-product-card:hover .ball-product-link i {
     transform: translateX(0.4rem);
-    color: white;
+
 }
 
 /* TABLET */
@@ -936,5 +944,2130 @@
 
     .ball-product-card:hover {
         transform: none;
+    }
+}
+
+
+
+/* =========================================
+   BALL VALVE TECHNICAL INFORMATION
+========================================= */
+
+.ball-tech {
+    padding: 7rem 5.5%;
+    background:
+        radial-gradient(circle at 0% 0%,
+            rgba(30, 79, 163, 0.06),
+            transparent 32%),
+        var(--white-color);
+    color: var(--text-color);
+    font-family: var(--body-font);
+}
+
+.ball-tech-container {
+    max-width: 140rem;
+    margin: 0 auto;
+}
+
+/* SECTION HEADING */
+
+.ball-tech-heading {
+    max-width: 78rem;
+    margin: 0 auto 3.5rem;
+    text-align: center;
+}
+
+.ball-tech-label {
+    display: inline-block;
+    margin-bottom: 1rem;
+    color: var(--first-color);
+    font-size: 1.3rem;
+    font-weight: var(--font-semi-bold);
+    letter-spacing: 0.2rem;
+}
+
+.ball-tech-heading h2 {
+    margin: 0 0 1.2rem;
+    color: var(--title-color);
+    font-family: var(--second-font);
+    font-size: 3.4rem;
+    font-weight: var(--font-bold);
+    line-height: 1.3;
+}
+
+.ball-tech-heading>p {
+    max-width: 68rem;
+    margin: 0 auto;
+    font-size: 1.7rem;
+    line-height: 1.8;
+}
+
+.ball-tech-heading-line {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.2rem;
+    margin-top: 2rem;
+    color: var(--accent-color);
+}
+
+.ball-tech-heading-line span {
+    width: 7rem;
+    height: 1px;
+    background: var(--accent-color);
+}
+
+.ball-tech-heading-line i {
+    font-size: 1.8rem;
+}
+
+/* PRODUCT TYPE STRIP */
+
+.ball-tech-types {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    margin-bottom: 2.5rem;
+    padding: 1.8rem 1rem;
+    background: var(--container-color);
+    border: var(--border);
+    border-radius: 1rem;
+    box-shadow: 0 0.5rem 2rem rgba(11, 44, 95, 0.06);
+}
+
+.ball-tech-type {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem;
+    text-align: center;
+}
+
+.ball-tech-type:not(:last-child) {
+    border-right: var(--top-border);
+}
+
+.ball-tech-type i {
+    display: grid;
+    place-items: center;
+    width: 4.8rem;
+    height: 4.8rem;
+    border: 1px solid rgba(11, 44, 95, 0.2);
+    border-radius: 50%;
+    color: var(--first-color);
+    background: var(--white-color);
+    font-size: 2.2rem;
+    transition:
+        transform 0.5s ease,
+        color 0.35s ease,
+        background 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+.ball-tech-type span {
+    color: var(--first-color);
+    font-size: 1.2rem;
+    font-weight: var(--font-bold);
+    line-height: 1.5;
+}
+
+.ball-tech-type:hover i {
+    transform: rotateY(180deg) scale(1.08);
+    color: var(--white-color);
+    background: var(--first-color);
+    border-color: var(--accent-color);
+    box-shadow: 0 0.5rem 1.5rem rgba(11, 44, 95, 0.2);
+}
+
+/* TECHNICAL GRID */
+
+.ball-tech-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2rem;
+}
+
+/* TECHNICAL CARD */
+
+.ball-tech-card {
+    min-width: 0;
+    padding: 2.2rem;
+    background: var(--container-color);
+    border: var(--border);
+    border-radius: 1rem;
+    box-shadow: 0 0.5rem 2rem rgba(11, 44, 95, 0.05);
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.ball-tech-card:hover {
+    transform: translateY(-0.3rem);
+    border-color: rgba(244, 180, 0, 0.8);
+    box-shadow: var(--box-shadow);
+}
+
+/* CARD HEADING */
+
+.ball-tech-card-heading {
+    display: flex;
+    align-items: center;
+    gap: 1.3rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: var(--top-border);
+}
+
+.ball-tech-icon {
+    display: grid;
+    place-items: center;
+    width: 4.8rem;
+    height: 4.8rem;
+    flex-shrink: 0;
+    border: 1px solid rgba(244, 180, 0, 0.7);
+    border-radius: 50%;
+    color: var(--white-color);
+    background: var(--first-color);
+    box-shadow: 0 0.4rem 1rem rgba(11, 44, 95, 0.15);
+    font-size: 2rem;
+    transition:
+        transform 0.55s ease,
+        color 0.3s ease,
+        background 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.ball-tech-card:hover .ball-tech-icon {
+    transform: rotateY(180deg);
+    color: var(--first-color);
+    background: var(--accent-color);
+    box-shadow: 0 0.5rem 1.5rem rgba(244, 180, 0, 0.25);
+}
+
+.ball-tech-card-heading h3 {
+    margin: 0 0 0.5rem;
+    color: var(--first-color);
+    font-family: var(--second-font);
+    font-size: 2rem;
+    font-weight: var(--font-bold);
+    line-height: 1.35;
+}
+
+.ball-tech-card-heading p {
+    margin: 0;
+    color: var(--text-color);
+    font-size: 1.3rem;
+    line-height: 1.6;
+}
+
+/* TWO-COLUMN TECHNICAL DETAILS */
+
+.ball-tech-columns {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2rem;
+}
+
+.ball-tech-column {
+    min-width: 0;
+}
+
+.ball-tech-column+.ball-tech-column {
+    padding-left: 2rem;
+    border-left: var(--top-border);
+}
+
+.ball-tech-column h4,
+.ball-tech-stat h4 {
+    margin: 0 0 1.2rem;
+    color: var(--first-color);
+    font-size: 1.3rem;
+    font-weight: var(--font-bold);
+    line-height: 1.5;
+}
+
+.ball-tech-column h4 {
+    text-transform: uppercase;
+    letter-spacing: 0.04rem;
+}
+
+.ball-tech-column ul {
+    display: grid;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.ball-tech-column li {
+    position: relative;
+    padding-left: 1.4rem;
+    color: var(--text-color);
+    font-size: 1.4rem;
+    line-height: 1.65;
+    overflow-wrap: anywhere;
+}
+
+.ball-tech-column li::before {
+    content: "";
+    position: absolute;
+    top: 0.85rem;
+    left: 0;
+    width: 0.55rem;
+    height: 0.55rem;
+    border-radius: 50%;
+    background: var(--accent-color);
+}
+
+.ball-tech-subheading {
+    margin-top: 2rem !important;
+}
+
+.ball-tech-inline {
+    margin: 0;
+    font-size: 1.4rem;
+    line-height: 1.8;
+}
+
+/* PRESSURE & SIZE */
+
+.ball-tech-stats {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+}
+
+.ball-tech-stat {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.2rem;
+    padding: 1.5rem;
+    background: var(--body-color);
+    border: var(--border);
+    border-radius: 0.8rem;
+}
+
+.ball-tech-stat-icon {
+    display: grid;
+    place-items: center;
+    width: 4rem;
+    height: 4rem;
+    flex-shrink: 0;
+    border-radius: 0.6rem;
+    color: var(--first-color);
+    background: var(--white-color);
+    font-size: 2rem;
+    transition:
+        transform 0.4s ease,
+        color 0.3s ease,
+        background 0.3s ease;
+}
+
+.ball-tech-stat:hover .ball-tech-stat-icon {
+    transform: rotate(-8deg) scale(1.08);
+    color: var(--white-color);
+    background: var(--first-color);
+}
+
+.ball-tech-stat h4 {
+    margin-bottom: 0.8rem;
+}
+
+.ball-tech-stat p {
+    margin: 0;
+    color: var(--text-color);
+    font-size: 1.5rem;
+    font-weight: var(--font-medium);
+    line-height: 1.8;
+}
+
+.ball-tech-note {
+    margin: 1.8rem 0 0;
+    padding: 1.2rem 1.5rem;
+    border-left: 0.3rem solid var(--accent-color);
+    background: var(--section-color);
+    color: var(--text-color);
+    font-size: 1.3rem;
+    line-height: 1.7;
+}
+
+/* BENEFITS STRIP */
+
+.ball-tech-benefits {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    margin-top: 2.5rem;
+    padding: 1.8rem;
+    border: var(--border);
+    border-radius: 1rem;
+    background: var(--section-color);
+}
+
+.ball-tech-benefit {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    padding: 1.2rem;
+}
+
+.ball-tech-benefit+.ball-tech-benefit {
+    border-left: var(--top-border);
+}
+
+.ball-tech-benefit>span {
+    display: grid;
+    place-items: center;
+    width: 4.5rem;
+    height: 4.5rem;
+    flex-shrink: 0;
+    border-radius: 50%;
+    color: var(--white-color);
+    background: var(--first-color);
+    border: 1px solid var(--accent-color);
+    font-size: 1.9rem;
+    transition:
+        transform 0.5s ease,
+        color 0.3s ease,
+        background 0.3s ease;
+}
+
+.ball-tech-benefit:hover>span {
+    transform: rotateY(180deg);
+    color: var(--first-color);
+    background: var(--accent-color);
+}
+
+.ball-tech-benefit h4 {
+    margin: 0 0 0.5rem;
+    color: var(--first-color);
+    font-size: 1.4rem;
+    font-weight: var(--font-bold);
+    line-height: 1.5;
+}
+
+.ball-tech-benefit p {
+    margin: 0;
+    color: var(--text-color);
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+.ball-tech-disclaimer {
+    margin: 1.8rem auto 0;
+    max-width: 100rem;
+    color: var(--text-color);
+    font-size: 1.2rem;
+    line-height: 1.8;
+    text-align: center;
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1050px) {
+    .ball-tech {
+        padding: 6rem 4%;
+    }
+
+    .ball-tech-card {
+        padding: 1.8rem;
+    }
+
+    .ball-tech-columns {
+        gap: 1.5rem;
+    }
+
+    .ball-tech-column+.ball-tech-column {
+        padding-left: 1.5rem;
+    }
+
+    .ball-tech-benefits {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .ball-tech-benefit:nth-child(3) {
+        border-left: 0;
+    }
+
+    .ball-tech-benefit:nth-child(n + 3) {
+        border-top: var(--top-border);
+    }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+    .ball-tech {
+        padding: 4.5rem 1.8rem;
+    }
+
+    .ball-tech-heading {
+        margin-bottom: 2.8rem;
+    }
+
+    .ball-tech-heading h2 {
+        font-size: 2.7rem;
+    }
+
+    .ball-tech-heading>p {
+        font-size: 1.5rem;
+    }
+
+    .ball-tech-types {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        padding: 1rem;
+    }
+
+    .ball-tech-type {
+        padding: 1.4rem 0.6rem;
+    }
+
+    .ball-tech-type:not(:last-child) {
+        border-right: 0;
+    }
+
+    .ball-tech-type:nth-child(odd) {
+        border-right: var(--top-border);
+    }
+
+    .ball-tech-type:not(:nth-child(-n + 2)) {
+        border-top: var(--top-border);
+    }
+
+    .ball-tech-type:last-child {
+        grid-column: 1 / -1;
+        border-right: 0;
+    }
+
+    .ball-tech-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .ball-tech-card {
+        padding: 1.8rem;
+    }
+
+    .ball-tech-card-heading h3 {
+        font-size: 1.9rem;
+    }
+
+    .ball-tech-column li,
+    .ball-tech-inline {
+        font-size: 1.35rem;
+    }
+
+    .ball-tech-benefits {
+        grid-template-columns: 1fr;
+        padding: 1rem;
+    }
+
+    .ball-tech-benefit+.ball-tech-benefit {
+        border-left: 0;
+        border-top: var(--top-border);
+    }
+
+    .ball-tech-benefit {
+        padding: 1.4rem 0.8rem;
+    }
+}
+
+/* SMALL MOBILE */
+
+@media (max-width: 420px) {
+    .ball-tech-columns {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .ball-tech-column+.ball-tech-column {
+        padding-top: 2rem;
+        padding-left: 0;
+        border-top: var(--top-border);
+        border-left: 0;
+    }
+
+    .ball-tech-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .ball-tech-heading h2 {
+        font-size: 2.4rem;
+    }
+
+    .ball-tech-card-heading {
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .ball-tech-icon {
+        width: 4.2rem;
+        height: 4.2rem;
+        font-size: 1.8rem;
+    }
+}
+
+/* ACCESSIBILITY */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .ball-tech *,
+    .ball-tech *::before,
+    .ball-tech *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+
+/* =========================================
+   APPLICATIONS & INDUSTRIES
+========================================= */
+
+.ball-applications {
+    padding: 7rem 5.5%;
+    background: var(--body-color);
+    color: var(--text-color);
+    font-family: var(--body-font);
+}
+
+.ball-applications-container {
+    max-width: 140rem;
+    margin: 0 auto;
+}
+
+/* SECTION HEADING */
+
+.ball-applications-heading {
+    max-width: 82rem;
+    margin: 0 auto 4.5rem;
+    text-align: center;
+}
+
+.ball-applications-label {
+    display: inline-block;
+    margin-bottom: 1.2rem;
+    color: var(--first-color);
+    font-size: 1.3rem;
+    font-weight: var(--font-semi-bold);
+    letter-spacing: 0.18rem;
+}
+
+.ball-applications-heading h2 {
+    margin: 0 0 1.5rem;
+    color: var(--title-color);
+    font-family: var(--second-font);
+    font-size: 3.5rem;
+    font-weight: var(--font-bold);
+    line-height: 1.3;
+}
+
+.ball-applications-heading h2 span {
+    display: block;
+    color: var(--first-color);
+}
+
+.ball-applications-heading>p {
+    max-width: 72rem;
+    margin: 0 auto;
+    font-size: 1.7rem;
+    line-height: 1.8;
+}
+
+/* APPLICATION HIGHLIGHTS */
+
+.ball-application-highlights {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.8rem;
+    margin-bottom: 6rem;
+}
+
+.ball-application-highlight {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.8rem;
+    padding: 2.3rem;
+    background: var(--container-color);
+    border: var(--border);
+    border-radius: 1rem;
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.ball-application-highlight:hover {
+    transform: translateY(-0.3rem);
+    border-color: var(--accent-color);
+    box-shadow: var(--box-shadow);
+}
+
+.ball-application-icon {
+    display: grid;
+    place-items: center;
+    width: 5rem;
+    height: 5rem;
+    flex-shrink: 0;
+    border: 1px solid rgba(244, 180, 0, 0.6);
+    border-radius: 0.8rem;
+    background: var(--section-color);
+    color: var(--first-color);
+    font-size: 2.2rem;
+    transition:
+        transform 0.45s ease,
+        color 0.3s ease,
+        background 0.3s ease;
+}
+
+.ball-application-highlight:hover .ball-application-icon {
+    transform: rotateY(180deg);
+    background: var(--first-color);
+    color: var(--accent-color);
+}
+
+.ball-application-highlight h3 {
+    margin: 0 0 0.8rem;
+    color: var(--title-color);
+    font-family: var(--second-font);
+    font-size: 1.9rem;
+    font-weight: var(--font-semi-bold);
+    line-height: 1.4;
+}
+
+.ball-application-highlight p {
+    margin: 0;
+    font-size: 1.5rem;
+    line-height: 1.8;
+}
+
+/* INDUSTRY HEADING */
+
+.ball-industries-heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 2.5rem;
+    margin-bottom: 2.5rem;
+    padding-bottom: 2rem;
+    border-bottom: var(--top-border);
+}
+
+.ball-industries-heading h3 {
+    margin: 0;
+    color: var(--title-color);
+    font-family: var(--second-font);
+    font-size: 2.7rem;
+    font-weight: var(--font-bold);
+    line-height: 1.4;
+}
+
+.ball-industries-heading>p {
+    max-width: 40rem;
+    margin: 0;
+    font-size: 1.5rem;
+    line-height: 1.8;
+}
+
+/* INDUSTRY GRID */
+
+.ball-industries-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1.8rem;
+}
+
+.ball-industry-card {
+    position: relative;
+    min-width: 0;
+    overflow: hidden;
+    padding: 2.2rem;
+    background: var(--container-color);
+    border: var(--border);
+    border-radius: 1rem;
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.ball-industry-card::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 0.3rem;
+    background: var(--accent-color);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.35s ease;
+}
+
+.ball-industry-card:hover {
+    transform: translateY(-0.4rem);
+    border-color: rgba(244, 180, 0, 0.7);
+    box-shadow: var(--box-shadow);
+}
+
+.ball-industry-card:hover::after {
+    transform: scaleX(1);
+}
+
+.ball-industry-icon {
+    display: grid;
+    place-items: center;
+    width: 5rem;
+    height: 5rem;
+    margin-bottom: 1.8rem;
+    border-radius: 0.8rem;
+    background: var(--first-color);
+    color: var(--accent-color);
+    font-size: 2.2rem;
+    transition:
+        transform 0.45s ease,
+        background 0.3s ease,
+        color 0.3s ease;
+}
+
+.ball-industry-card:hover .ball-industry-icon {
+    transform: rotateY(180deg);
+    background: var(--accent-color);
+    color: var(--first-color);
+}
+
+.ball-industry-number {
+    display: block;
+    margin-bottom: 0.6rem;
+    color: var(--accent-color);
+    font-size: 1.2rem;
+    font-weight: var(--font-bold);
+    letter-spacing: 0.1rem;
+}
+
+.ball-industry-content h4 {
+    margin: 0 0 1rem;
+    color: var(--title-color);
+    font-family: var(--second-font);
+    font-size: 1.8rem;
+    font-weight: var(--font-semi-bold);
+    line-height: 1.45;
+}
+
+.ball-industry-content p {
+    margin: 0;
+    color: var(--text-color);
+    font-size: 1.4rem;
+    line-height: 1.8;
+}
+
+/* SELECTION PANEL */
+
+.ball-selection {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 4rem;
+    margin-top: 6rem;
+    padding: 3.5rem;
+    border-radius: 1.2rem;
+    background:
+        radial-gradient(circle at 0% 100%,
+            rgba(30, 79, 163, 0.45),
+            transparent 40%),
+        linear-gradient(120deg,
+            #071e42,
+            var(--first-color) 65%,
+            #173d78);
+    color: var(--white-color);
+}
+
+.ball-selection-content {
+    align-self: center;
+}
+
+.ball-selection-content .ball-applications-label {
+    color: var(--accent-color);
+}
+
+.ball-selection-content h3 {
+    margin: 0 0 1.5rem;
+    color: var(--white-color);
+    font-family: var(--second-font);
+    font-size: 2.8rem;
+    font-weight: var(--font-bold);
+    line-height: 1.4;
+}
+
+.ball-selection-content>p {
+    margin: 0 0 2.5rem;
+    color: rgba(255, 255, 255, 0.82);
+    font-size: 1.6rem;
+    line-height: 1.9;
+}
+
+/* CTA BUTTON */
+
+.ball-selection-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.2rem;
+    padding: 1.5rem 2rem;
+    border: 1px solid var(--accent-color);
+    border-radius: 0.6rem;
+    background: var(--accent-color);
+    color: var(--title-color);
+    font-size: 1.5rem;
+    font-weight: var(--font-semi-bold);
+    text-decoration: none;
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        color 0.3s ease;
+}
+
+.ball-selection-button:hover {
+    transform: translateY(-0.3rem);
+    background: var(--white-color);
+    border-color: var(--white-color);
+    color: var(--first-color);
+}
+
+.ball-selection-button i {
+    transition: transform 0.3s ease;
+}
+
+.ball-selection-button:hover i {
+    transform: translateX(0.4rem);
+}
+
+/* SELECTION CHECKLIST */
+
+.ball-selection-list {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.ball-selection-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.4rem;
+    padding: 1.6rem;
+    border: 1px solid rgba(255, 255, 255, 0.13);
+    border-radius: 0.8rem;
+    background: rgba(255, 255, 255, 0.055);
+    transition:
+        background 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.ball-selection-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(244, 180, 0, 0.6);
+}
+
+.ball-selection-item>span {
+    display: grid;
+    place-items: center;
+    width: 3.2rem;
+    height: 3.2rem;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: var(--accent-color);
+    color: var(--first-color);
+    font-size: 1.4rem;
+    transition: transform 0.35s ease;
+}
+
+.ball-selection-item:hover>span {
+    transform: rotate(360deg);
+}
+
+.ball-selection-item h4 {
+    margin: 0 0 0.5rem;
+    color: var(--white-color);
+    font-size: 1.6rem;
+    font-weight: var(--font-semi-bold);
+    line-height: 1.5;
+}
+
+.ball-selection-item p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.78);
+    font-size: 1.4rem;
+    line-height: 1.8;
+}
+
+/* TECHNICAL DISCLAIMER */
+
+.ball-applications-note {
+    max-width: 105rem;
+    margin: 2rem auto 0;
+    color: var(--text-color);
+    font-size: 1.3rem;
+    line-height: 1.8;
+    text-align: center;
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1050px) {
+    .ball-applications {
+        padding: 6rem 4%;
+    }
+
+    .ball-industries-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .ball-selection {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        padding: 3rem;
+    }
+
+    .ball-industries-heading {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+    .ball-applications {
+        padding: 4.5rem 1.8rem;
+    }
+
+    .ball-applications-heading {
+        margin-bottom: 3rem;
+    }
+
+    .ball-applications-heading h2 {
+        font-size: 2.7rem;
+    }
+
+    .ball-applications-heading>p {
+        font-size: 1.5rem;
+    }
+
+    .ball-application-highlights {
+        grid-template-columns: 1fr;
+        gap: 1.3rem;
+        margin-bottom: 4.5rem;
+    }
+
+    .ball-application-highlight {
+        gap: 1.3rem;
+        padding: 1.8rem;
+    }
+
+    .ball-application-highlight h3 {
+        font-size: 1.8rem;
+    }
+
+    .ball-application-highlight p {
+        font-size: 1.4rem;
+    }
+
+    .ball-industries-heading h3 {
+        font-size: 2.3rem;
+    }
+
+    .ball-industries-heading>p {
+        font-size: 1.4rem;
+    }
+
+    .ball-industries-grid {
+        grid-template-columns: 1fr;
+        gap: 1.4rem;
+    }
+
+    .ball-industry-card {
+        padding: 1.8rem;
+    }
+
+    .ball-industry-content h4 {
+        font-size: 1.8rem;
+    }
+
+    .ball-industry-content p {
+        font-size: 1.4rem;
+    }
+
+    .ball-selection {
+        gap: 2.5rem;
+        margin-top: 4.5rem;
+        padding: 2rem;
+    }
+
+    .ball-selection-content h3 {
+        font-size: 2.4rem;
+    }
+
+    .ball-selection-content>p {
+        font-size: 1.5rem;
+    }
+
+    .ball-selection-button {
+        width: 100%;
+        padding: 1.4rem 1.2rem;
+        font-size: 1.4rem;
+    }
+
+    .ball-selection-item {
+        gap: 1rem;
+        padding: 1.3rem;
+    }
+
+    .ball-selection-item h4 {
+        font-size: 1.5rem;
+    }
+
+    .ball-selection-item p {
+        font-size: 1.3rem;
+    }
+}
+
+/* SMALL MOBILE */
+
+@media (max-width: 390px) {
+    .ball-applications {
+        padding-right: 1.3rem;
+        padding-left: 1.3rem;
+    }
+
+    .ball-applications-heading h2 {
+        font-size: 2.4rem;
+    }
+
+    .ball-application-highlight {
+        align-items: flex-start;
+        padding: 1.5rem;
+    }
+
+    .ball-application-icon {
+        width: 4.2rem;
+        height: 4.2rem;
+        font-size: 1.8rem;
+    }
+
+    .ball-selection {
+        padding: 1.5rem;
+    }
+}
+
+/* ACCESSIBILITY */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .ball-applications *,
+    .ball-applications *::before,
+    .ball-applications *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+
+.stagger.active>*:nth-child(7) {
+    animation: staggerIn 0.7s var(--ease) forwards;
+    animation-delay: 0.47s;
+}
+
+.stagger.active>*:nth-child(8) {
+    animation: staggerIn 0.7s var(--ease) forwards;
+    animation-delay: 0.54s;
+}
+
+
+.ball-applications-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    max-width: 32rem;
+    margin: 2.2rem auto 0;
+}
+
+.ball-applications-divider span {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg,
+            transparent,
+            var(--accent-color));
+}
+
+.ball-applications-divider span:last-child {
+    background: linear-gradient(90deg,
+            var(--accent-color),
+            transparent);
+}
+
+.ball-applications-divider i {
+    margin: 0 1rem;
+    color: var(--accent-color);
+    font-size: 0.8rem;
+    transition: transform 0.4s ease;
+}
+
+.ball-applications-divider:hover i {
+    transform: scale(1.5);
+}
+
+
+/* ==========================================
+   BALL VALVES — TRUST & CONVERSION
+========================================== */
+
+.ball-trust-section {
+    position: relative;
+    overflow: hidden;
+    padding: 8rem 5.5%;
+    background: var(--white-color);
+    color: var(--text-color);
+    font-family: var(--body-font);
+}
+
+.ball-trust-container {
+    position: relative;
+    max-width: 140rem;
+    margin: 0 auto;
+}
+
+/* COMMON LABEL */
+
+.ball-trust-label {
+    display: inline-block;
+    margin-bottom: 1.2rem;
+    color: var(--first-color);
+    font-size: 1.3rem;
+    font-weight: var(--font-semi-bold);
+    letter-spacing: 0.15rem;
+}
+
+/* SECTION HEADING */
+
+.ball-trust-heading {
+    max-width: 82rem;
+    margin: 0 auto 5rem;
+    text-align: center;
+}
+
+.ball-trust-eyebrow {
+    display: inline-block;
+    margin-bottom: 1.5rem;
+    color: var(--first-color);
+    font-size: 1.3rem;
+    font-weight: var(--font-semi-bold);
+    letter-spacing: 0.2rem;
+}
+
+.ball-trust-heading h2 {
+    margin: 0 0 1.5rem;
+    color: var(--title-color);
+    font-family: var(--second-font);
+    font-size: 3.6rem;
+    font-weight: var(--font-bold);
+    line-height: 1.3;
+}
+
+.ball-trust-heading h2 span {
+    display: block;
+    color: var(--first-color);
+}
+
+.ball-trust-heading>p {
+    max-width: 70rem;
+    margin: 0 auto;
+    font-size: 1.7rem;
+    line-height: 1.9;
+}
+
+/* GOLD DIVIDER */
+
+.ball-trust-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    max-width: 30rem;
+    margin: 2.2rem auto 0;
+}
+
+.ball-trust-divider span {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg,
+            transparent,
+            var(--accent-color));
+}
+
+.ball-trust-divider span:last-child {
+    background: linear-gradient(90deg,
+            var(--accent-color),
+            transparent);
+}
+
+.ball-trust-divider i {
+    margin: 0 1rem;
+    color: var(--accent-color);
+    font-size: 0.8rem;
+}
+
+/* ==========================================
+   QUALITY ASSURANCE
+========================================== */
+
+.ball-quality-layout {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 5rem;
+    align-items: center;
+    margin-bottom: 8rem;
+    padding: 4rem;
+    background: var(--body-color);
+    border: var(--border);
+    border-radius: 1.2rem;
+}
+
+.ball-quality-content h3 {
+    margin: 0 0 1.8rem;
+    color: var(--title-color);
+    font-family: var(--second-font);
+    font-size: 2.8rem;
+    font-weight: var(--font-bold);
+    line-height: 1.4;
+}
+
+.ball-quality-content>p {
+    margin: 0 0 1.5rem;
+    color: var(--text-color);
+    font-size: 1.6rem;
+    line-height: 1.9;
+}
+
+.ball-product-link:hover i {
+    color: white;
+}
+
+.ball-quality-content .ball-product-link i {
+    color: #0b2c5f;
+}
+
+/* QUALITY CHECKLIST */
+
+.ball-quality-checks {
+    display: grid;
+    gap: 1.4rem;
+}
+
+.ball-quality-check {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    padding: 1.8rem;
+    background: var(--container-color);
+    border: var(--border);
+    border-radius: 0.8rem;
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.ball-quality-check:hover {
+    transform: translateX(0.4rem);
+    border-color: var(--accent-color);
+    box-shadow: 0 0.8rem 2rem rgba(11, 44, 95, 0.08);
+}
+
+.ball-quality-check-icon {
+    display: grid;
+    place-items: center;
+    width: 4.5rem;
+    height: 4.5rem;
+    flex-shrink: 0;
+    border: 1px solid rgba(244, 180, 0, 0.7);
+    border-radius: 0.8rem;
+    background: var(--first-color);
+    color: var(--accent-color);
+    font-size: 1.9rem;
+    transition:
+        transform 0.45s ease,
+        background 0.3s ease,
+        color 0.3s ease;
+}
+
+.ball-quality-check:hover .ball-quality-check-icon {
+    transform: rotateY(180deg);
+    background: var(--accent-color);
+    color: var(--first-color);
+}
+
+.ball-quality-check h4 {
+    margin: 0 0 0.6rem;
+    color: var(--title-color);
+    font-size: 1.7rem;
+    font-weight: var(--font-semi-bold);
+    line-height: 1.5;
+}
+
+.ball-quality-check p {
+    margin: 0;
+    color: var(--text-color);
+    font-size: 1.4rem;
+    line-height: 1.8;
+}
+
+/* ==========================================
+   ENGINEERING CAPABILITIES
+========================================== */
+
+.ball-capabilities {
+    margin-bottom: 8rem;
+}
+
+.ball-capabilities-heading {
+    max-width: 78rem;
+    margin: 0 auto 3.5rem;
+    text-align: center;
+}
+
+.ball-capabilities-heading h3 {
+    margin: 0 0 1.4rem;
+    color: var(--title-color);
+    font-family: var(--second-font);
+    font-size: 3rem;
+    font-weight: var(--font-bold);
+    line-height: 1.4;
+}
+
+.ball-capabilities-heading>p {
+    margin: 0;
+    font-size: 1.6rem;
+    line-height: 1.9;
+}
+
+.ball-capabilities-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1.8rem;
+}
+
+.ball-capability-card {
+    position: relative;
+    min-width: 0;
+    overflow: hidden;
+    padding: 2.5rem 2rem;
+    background: var(--container-color);
+    border: var(--border);
+    border-radius: 1rem;
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+.ball-capability-card::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 0.3rem;
+    background: var(--accent-color);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+}
+
+.ball-capability-card:hover {
+    transform: translateY(-0.5rem);
+    border-color: var(--accent-color);
+    box-shadow: var(--box-shadow);
+}
+
+.ball-capability-card:hover::after {
+    transform: scaleX(1);
+}
+
+.ball-capability-icon {
+    display: grid;
+    place-items: center;
+    width: 5rem;
+    height: 5rem;
+    margin-bottom: 2rem;
+    border: 1px solid rgba(244, 180, 0, 0.7);
+    border-radius: 0.8rem;
+    background: var(--first-color);
+    color: var(--accent-color);
+    font-size: 2.1rem;
+    transition:
+        transform 0.45s ease,
+        background 0.3s ease,
+        color 0.3s ease;
+}
+
+.ball-capability-card:hover .ball-capability-icon {
+    transform: rotateY(180deg);
+    background: var(--accent-color);
+    color: var(--first-color);
+}
+
+.ball-capability-number {
+    display: block;
+    margin-bottom: 0.7rem;
+    color: var(--accent-color);
+    font-size: 1.2rem;
+    font-weight: var(--font-bold);
+    letter-spacing: 0.1rem;
+}
+
+.ball-capability-card h4 {
+    margin: 0 0 1.2rem;
+    color: var(--title-color);
+    font-family: var(--second-font);
+    font-size: 1.8rem;
+    font-weight: var(--font-semi-bold);
+    line-height: 1.5;
+}
+
+.ball-capability-card p {
+    margin: 0;
+    color: var(--text-color);
+    font-size: 1.4rem;
+    line-height: 1.9;
+}
+
+/* ==========================================
+   STANDARDS PANEL
+========================================== */
+
+.ball-standards-panel {
+    display: flex;
+    align-items: flex-start;
+    gap: 2.5rem;
+    margin-bottom: 8rem;
+    padding: 3.5rem;
+    background:
+        radial-gradient(circle at 100% 0,
+            rgba(30, 79, 163, 0.08),
+            transparent 35%),
+        var(--body-color);
+    border: var(--border);
+    border-radius: 1.2rem;
+}
+
+.ball-standards-icon {
+    display: grid;
+    place-items: center;
+    width: 6rem;
+    height: 6rem;
+    flex-shrink: 0;
+    border: 1px solid var(--accent-color);
+    border-radius: 1rem;
+    background: var(--first-color);
+    color: var(--accent-color);
+    font-size: 2.6rem;
+    transition: transform 0.45s ease;
+}
+
+.ball-standards-panel:hover .ball-standards-icon {
+    transform: rotateY(180deg);
+}
+
+.ball-standards-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.ball-standards-content h3 {
+    margin: 0 0 1.3rem;
+    color: var(--title-color);
+    font-family: var(--second-font);
+    font-size: 2.5rem;
+    font-weight: var(--font-bold);
+    line-height: 1.4;
+}
+
+.ball-standards-content>p {
+    margin: 0 0 1.8rem;
+    font-size: 1.5rem;
+    line-height: 1.9;
+}
+
+.ball-standard-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1.8rem;
+}
+
+.ball-standard-tags span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.8rem 1.2rem;
+    border: 1px solid rgba(11, 44, 95, 0.15);
+    border-radius: 0.5rem;
+    background: var(--white-color);
+    color: var(--first-color);
+    font-size: 1.3rem;
+    font-weight: var(--font-semi-bold);
+    transition:
+        color 0.3s ease,
+        background 0.3s ease,
+        border-color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.ball-standard-tags span:hover {
+    transform: translateY(-0.2rem);
+    background: var(--first-color);
+    border-color: var(--first-color);
+    color: var(--white-color);
+}
+
+.ball-standards-content .ball-standards-note {
+    margin: 0;
+    padding-left: 1.4rem;
+    border-left: 0.3rem solid var(--accent-color);
+    color: var(--text-color);
+    font-size: 1.3rem;
+    line-height: 1.8;
+}
+
+/* ==========================================
+   FAQ HEADING
+   Existing .faqs-section / .faqs / .box
+   styles remain untouched.
+========================================== */
+
+.ball-faq-heading {
+    max-width: 78rem;
+    margin: 0 auto 3rem;
+    text-align: center;
+}
+
+.ball-faq-heading h2 {
+    margin: 0 0 1.2rem;
+    color: var(--title-color);
+    font-family: var(--second-font);
+    font-size: 3rem;
+    font-weight: var(--font-bold);
+    line-height: 1.4;
+}
+
+.ball-faq-heading>p {
+    margin: 0;
+    color: var(--text-color);
+    font-size: 1.6rem;
+    line-height: 1.8;
+}
+
+/* ==========================================
+   FINAL REQUEST A QUOTE CTA
+========================================== */
+
+.ball-final-cta {
+    position: relative;
+    isolation: isolate;
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    align-items: center;
+    gap: 3rem;
+    overflow: hidden;
+    margin-top: 7rem;
+    padding: 5rem;
+    border: 1px solid rgba(244, 180, 0, 0.45);
+    border-radius: 1.4rem;
+    background:
+        radial-gradient(circle at 78% 45%,
+            rgba(244, 180, 0, 0.13),
+            transparent 34%),
+        linear-gradient(120deg,
+            #071e42,
+            var(--first-color) 58%,
+            #1e4fa3);
+    color: var(--white-color);
+}
+
+.ball-final-cta-content {
+    position: relative;
+    z-index: 2;
+}
+
+.ball-final-cta-label {
+    display: inline-block;
+    margin-bottom: 1.5rem;
+    color: var(--accent-color);
+    font-size: 1.3rem;
+    font-weight: var(--font-semi-bold);
+    letter-spacing: 0.15rem;
+}
+
+.ball-final-cta-content h2 {
+    margin: 0 0 1.6rem;
+    color: var(--white-color);
+    font-family: var(--second-font);
+    font-size: 3.5rem;
+    font-weight: var(--font-bold);
+    line-height: 1.35;
+}
+
+.ball-final-cta-content h2 span {
+    display: block;
+    color: var(--accent-color);
+}
+
+.ball-final-cta-content>p {
+    max-width: 62rem;
+    margin: 0 0 2rem;
+    color: rgba(255, 255, 255, 0.82);
+    font-size: 1.6rem;
+    line-height: 1.9;
+}
+
+.ball-final-cta-points {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.2rem 2rem;
+    margin-bottom: 2.8rem;
+}
+
+.ball-final-cta-points span {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.3rem;
+}
+
+.ball-final-cta-points i {
+    color: var(--accent-color);
+}
+
+/* CTA BUTTONS */
+
+.ball-final-cta-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.2rem;
+}
+
+.ball-final-cta-primary,
+.ball-final-cta-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    min-height: 5rem;
+    padding: 1.4rem 2rem;
+    border: 1px solid transparent;
+    border-radius: 0.6rem;
+    font-size: 1.5rem;
+    font-weight: var(--font-semi-bold);
+    text-decoration: none;
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.ball-final-cta-primary {
+    background: var(--accent-color);
+    color: var(--title-color);
+}
+
+.ball-final-cta-primary:hover {
+    transform: translateY(-0.3rem);
+    background: var(--white-color);
+    color: var(--first-color);
+}
+
+.ball-final-cta-primary i {
+    transition: transform 0.3s ease;
+}
+
+.ball-final-cta-primary:hover i {
+    transform: translateX(0.4rem);
+}
+
+.ball-final-cta-secondary {
+    border-color: rgba(255, 255, 255, 0.5);
+    background: transparent;
+    color: var(--white-color);
+}
+
+.ball-final-cta-secondary:hover {
+    transform: translateY(-0.3rem);
+    background: var(--white-color);
+    border-color: var(--white-color);
+    color: var(--first-color);
+}
+
+/* CTA VISUAL */
+
+.ball-final-cta-visual {
+    position: relative;
+    display: grid;
+    place-items: center;
+    min-height: 32rem;
+}
+
+.ball-final-cta-visual-ring {
+    position: absolute;
+    width: min(29rem, 90%);
+    aspect-ratio: 1;
+    border: 1px solid rgba(244, 180, 0, 0.4);
+    border-radius: 50%;
+    box-shadow:
+        0 0 0 2.5rem rgba(255, 255, 255, 0.025),
+        0 0 0 5rem rgba(255, 255, 255, 0.02);
+}
+
+.ball-final-cta-visual-icon {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    place-items: center;
+    width: 15rem;
+    height: 15rem;
+    border: 1px solid rgba(244, 180, 0, 0.75);
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.07);
+    color: var(--accent-color);
+    font-size: 6rem;
+    box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.15);
+    animation: ballTrustFloat 5s ease-in-out infinite;
+}
+
+.ball-final-cta-floating {
+    position: absolute;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.2rem 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 0.8rem;
+    background: rgba(7, 30, 66, 0.9);
+    color: var(--white-color);
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(1rem);
+    font-size: 1.3rem;
+}
+
+.ball-final-cta-floating i {
+    color: var(--accent-color);
+    font-size: 1.8rem;
+}
+
+.ball-final-cta-floating-top {
+    top: 12%;
+    right: 0;
+}
+
+.ball-final-cta-floating-bottom {
+    bottom: 12%;
+    left: 0;
+}
+
+.ball-final-cta-decoration {
+    position: absolute;
+    z-index: -1;
+    width: 25rem;
+    height: 25rem;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.ball-final-cta-decoration-one {
+    top: -15rem;
+    right: 15%;
+}
+
+.ball-final-cta-decoration-two {
+    bottom: -18rem;
+    left: 35%;
+}
+
+
+@keyframes ballTrustFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-0.8rem);
+    }
+}
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width: 1050px) {
+    .ball-trust-section {
+        padding: 6rem 4%;
+    }
+
+    .ball-quality-layout {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        padding: 3rem;
+    }
+
+    .ball-capabilities-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .ball-final-cta {
+        grid-template-columns: 1fr 0.7fr;
+        gap: 2rem;
+        padding: 3.5rem;
+    }
+
+    .ball-final-cta-content h2 {
+        font-size: 3rem;
+    }
+
+    .ball-final-cta-visual {
+        min-height: 28rem;
+    }
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 700px) {
+    .ball-trust-section {
+        padding: 4.5rem 1.8rem;
+    }
+
+    .ball-trust-heading {
+        margin-bottom: 3.5rem;
+    }
+
+    .ball-trust-heading h2 {
+        font-size: 2.7rem;
+    }
+
+    .ball-trust-heading>p {
+        font-size: 1.5rem;
+    }
+
+    .ball-quality-layout {
+        gap: 2.5rem;
+        margin-bottom: 5rem;
+        padding: 2rem;
+    }
+
+    .ball-quality-content h3 {
+        font-size: 2.4rem;
+    }
+
+    .ball-quality-content>p {
+        font-size: 1.5rem;
+    }
+
+    .ball-quality-check {
+        gap: 1.2rem;
+        padding: 1.4rem;
+    }
+
+    .ball-quality-check h4 {
+        font-size: 1.5rem;
+    }
+
+    .ball-quality-check p {
+        font-size: 1.3rem;
+    }
+
+    .ball-capabilities {
+        margin-bottom: 5rem;
+    }
+
+    .ball-capabilities-heading h3 {
+        font-size: 2.5rem;
+    }
+
+    .ball-capabilities-heading>p {
+        font-size: 1.5rem;
+    }
+
+    .ball-capabilities-grid {
+        grid-template-columns: 1fr;
+        gap: 1.4rem;
+    }
+
+    .ball-capability-card {
+        padding: 2rem;
+    }
+
+    .ball-capability-card h4 {
+        font-size: 1.8rem;
+    }
+
+    .ball-capability-card p {
+        font-size: 1.5rem;
+    }
+
+    .ball-standards-panel {
+        flex-direction: column;
+        gap: 1.8rem;
+        margin-bottom: 5rem;
+        padding: 2rem;
+    }
+
+    .ball-standards-content h3 {
+        font-size: 2.2rem;
+    }
+
+    .ball-standards-content>p {
+        font-size: 1.4rem;
+    }
+
+    .ball-standard-tags {
+        gap: 0.8rem;
+    }
+
+    .ball-standard-tags span {
+        font-size: 1.2rem;
+    }
+
+    .ball-faq-heading h2 {
+        font-size: 2.5rem;
+    }
+
+    .ball-faq-heading>p {
+        font-size: 1.5rem;
+    }
+
+    .ball-final-cta {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        margin-top: 5rem;
+        padding: 2.2rem;
+    }
+
+    .ball-final-cta-content h2 {
+        font-size: 2.7rem;
+    }
+
+    .ball-final-cta-content>p {
+        font-size: 1.5rem;
+    }
+
+    .ball-final-cta-points {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .ball-final-cta-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .ball-final-cta-primary,
+    .ball-final-cta-secondary {
+        width: 100%;
+        font-size: 1.4rem;
+    }
+
+    .ball-final-cta-visual {
+        min-height: 25rem;
+        margin-top: 1rem;
+    }
+
+    .ball-final-cta-visual-ring {
+        width: 20rem;
+    }
+
+    .ball-final-cta-visual-icon {
+        width: 11rem;
+        height: 11rem;
+        font-size: 4.5rem;
+    }
+
+    .ball-final-cta-floating-top {
+        top: 8%;
+        right: 0;
+    }
+
+    .ball-final-cta-floating-bottom {
+        bottom: 8%;
+        left: 0;
+    }
+}
+
+/* SMALL MOBILE */
+
+@media (max-width: 390px) {
+    .ball-trust-section {
+        padding-right: 1.3rem;
+        padding-left: 1.3rem;
+    }
+
+    .ball-trust-heading h2 {
+        font-size: 2.4rem;
+    }
+
+    .ball-quality-layout,
+    .ball-standards-panel {
+        padding: 1.5rem;
+    }
+
+    .ball-quality-check-icon {
+        width: 3.8rem;
+        height: 3.8rem;
+        font-size: 1.6rem;
+    }
+
+    .ball-final-cta {
+        padding: 1.6rem;
+    }
+
+    .ball-final-cta-content h2 {
+        font-size: 2.4rem;
+    }
+
+    .ball-final-cta-floating {
+        gap: 0.7rem;
+        padding: 1rem;
+        font-size: 1.1rem;
+    }
+}
+
+/* ACCESSIBILITY */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .ball-trust-section *,
+    .ball-trust-section *::before,
+    .ball-trust-section *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
     }
 }

@@ -605,6 +605,25 @@ strong {
 
 }
 
+/* Elfsight's free-plan branding cannot be disabled in widget settings.
+   Mask only its centered footer badge; this matches the page/widget canvas. */
+.google-reviews-widget {
+    position: relative;
+}
+
+.google-reviews-widget::after {
+    content: "";
+    position: absolute;
+    z-index: 2;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 270px;
+    height: 42px;
+    background: #f1f5f9;
+    pointer-events: none;
+}
+
 /* RESPONSIVE */
 @media (max-width: 992px) {
     .process-grid {
