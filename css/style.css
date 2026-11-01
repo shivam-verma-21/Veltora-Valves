@@ -3002,6 +3002,7 @@ input::placeholder {
     font-size: 1.6rem;
     color: #475569;
     margin-bottom: 15px;
+    text-align: justify;
 }
 
 /* FEATURES GRID */
@@ -3448,3 +3449,4 @@ header .flex .navbar ul {
         left: .8rem;
     }
 }
+
