@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+﻿@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 
 :root {
 
@@ -254,6 +254,277 @@
 .toast.Invalid::after {
     background-color: orange;
 }
+
+/* Search feedback: keep validation messages visible below the fixed header. */
+#toastBox {
+    position: fixed;
+    top: calc(12rem + env(safe-area-inset-top, 0px));
+    right: auto;
+    left: 50%;
+    width: min(38rem, calc(100vw - 2.4rem));
+    align-items: center;
+    overflow: visible;
+    transform: translateX(-50%);
+    z-index: 10001;
+    pointer-events: none;
+}
+
+.toast.search-feedback {
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 5rem;
+    height: auto;
+    margin: 0;
+    padding: 1.2rem 1.6rem;
+    gap: 1rem;
+    color: #24364d;
+    background: #fff;
+    border: 1px solid #d9e2ee;
+    border-radius: 1.2rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+    animation: slideRoast 3s ease forwards;
+}
+
+.toast.search-feedback i {
+    flex: 0 0 auto;
+    margin: 0;
+    color: #dc3545;
+    font-size: 1.8rem;
+}
+
+.toast.search-feedback::after {
+    left: 1.2rem;
+    width: calc(100% - 2.4rem);
+}
+
+@media (max-width: 480px) {
+    #toastBox {
+        width: calc(100vw - 2rem);
+    }
+
+    .toast.search-feedback {
+        min-height: 4.8rem;
+        padding: 1rem 1.2rem;
+        gap: .8rem;
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 992px) {
+    #toastBox {
+        top: calc(7.6rem + env(safe-area-inset-top, 0px));
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .toast.search-feedback {
+        animation: none;
+    }
+
+    .toast.search-feedback::after {
+        animation: none;
+    }
+}
+
+/* ==========================================
+   VELTORA SIGNATURE PAGE PRELOADER
+========================================== */
+.veltora-preloader {
+    position: fixed;
+    inset: 0;
+    z-index: 20000;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 50% 42%, rgba(255, 255, 255, .98) 0 22%, rgba(255, 255, 255, .72) 44%, transparent 73%),
+        linear-gradient(145deg, #ffffff 0%, #f7faff 52%, var(--body-color) 100%);
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    touch-action: none;
+    overscroll-behavior: contain;
+    transition: opacity .55s var(--ease), visibility .55s var(--ease);
+    animation: veltora-preloader-failsafe 1ms 24s forwards;
+}
+
+html.veltora-preloader-active {
+    overflow: hidden !important;
+}
+
+.veltora-preloader.is-leaving {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.veltora-preloader__content {
+    display: grid;
+    justify-items: center;
+    width: min(100% - 36px, 360px);
+}
+
+.veltora-preloader__orbit {
+    position: relative;
+    width: clamp(228px, 68vw, 280px);
+    aspect-ratio: 1;
+}
+
+.veltora-preloader__orbit > svg {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+}
+
+.veltora-preloader__orbit circle {
+    fill: none;
+    stroke-linecap: round;
+}
+
+.veltora-preloader__track--outer {
+    stroke: rgba(11, 44, 95, .10);
+    stroke-width: 1.35;
+}
+
+.veltora-preloader__track--inner {
+    stroke: rgba(244, 180, 0, .17);
+    stroke-width: 1.15;
+}
+
+.veltora-preloader__rotor {
+    transform-box: view-box;
+    transform-origin: center;
+    animation: veltora-preloader-orbit 8.5s linear infinite;
+}
+
+.veltora-preloader__rotor circle {
+    stroke-width: 2.2;
+}
+
+.veltora-preloader__rotor--gold {
+    filter: drop-shadow(0 0 3px rgba(244, 180, 0, .28));
+}
+
+.veltora-preloader__rotor--gold circle {
+    stroke: var(--accent-color);
+    stroke-dasharray: 175 605;
+}
+
+.veltora-preloader__rotor--navy {
+    animation-duration: 12.5s;
+    animation-direction: reverse;
+    opacity: .8;
+}
+
+.veltora-preloader__rotor--navy circle {
+    stroke: var(--first-color);
+    stroke-dasharray: 100 566;
+}
+
+.veltora-preloader__brand {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(7px, 2vw, 12px);
+    animation: veltora-preloader-logo-in .9s var(--ease) both;
+}
+
+.veltora-preloader__mark {
+    display: block;
+    flex: 0 0 auto;
+    width: clamp(48px, 15vw, 64px);
+    height: clamp(48px, 15vw, 64px);
+    object-fit: contain;
+}
+
+.veltora-preloader__wordmark {
+    display: block;
+    flex: 0 1 auto;
+    width: min(184px, 55vw);
+    max-height: 56px;
+    object-fit: contain;
+}
+
+.veltora-preloader__progress {
+    display: grid;
+    justify-items: center;
+    gap: 10px;
+    width: min(188px, 64vw);
+    margin-top: 13px;
+}
+
+.veltora-preloader__label {
+    color: var(--first-color);
+    font-family: var(--body-font);
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: .17em;
+    line-height: 1.4;
+    text-align: center;
+}
+
+.veltora-preloader__bar {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 2px;
+    overflow: hidden;
+    border-radius: 2px;
+    background: rgba(11, 44, 95, .12);
+}
+
+.veltora-preloader__bar > span {
+    position: absolute;
+    inset: 0 auto 0 -42%;
+    width: 42%;
+    border-radius: inherit;
+    background: linear-gradient(90deg, transparent, var(--accent-color), #ffd766, transparent);
+    animation: veltora-preloader-progress 1.8s var(--ease) infinite;
+}
+
+@keyframes veltora-preloader-orbit {
+    to { transform: rotate(1turn); }
+}
+
+@keyframes veltora-preloader-logo-in {
+    from { opacity: 0; transform: translateY(5px) scale(.985); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes veltora-preloader-progress {
+    to { transform: translateX(340%); }
+}
+
+@keyframes veltora-preloader-failsafe {
+    to { opacity: 0; visibility: hidden; pointer-events: none; }
+}
+
+@media (max-width: 380px) {
+    .veltora-preloader__orbit { width: 224px; }
+    .veltora-preloader__wordmark { width: min(158px, 49vw); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .veltora-preloader__rotor,
+    .veltora-preloader__brand,
+    .veltora-preloader__bar > span {
+        animation: none;
+    }
+
+    .veltora-preloader {
+        transition-duration: .01ms;
+    }
+}
+
+
 
 
 .reveal {
@@ -3447,6 +3718,715 @@ header .flex .navbar ul {
     header .search-box {
         right: .8rem;
         left: .8rem;
+    }
+}
+
+/* ==========================================
+   VELTORA FLOATING TOOLS
+   WHATSAPP + BACK TO TOP
+========================================== */
+
+.veltora-floating-tools {
+    --float-whatsapp-green: #25d366;
+
+    position: fixed;
+    inset: 0;
+    z-index: calc(var(--z-fixed, 100) + 10);
+    pointer-events: none;
+}
+
+
+/* ==========================================
+   WHATSAPP FLOATING PILL
+========================================== */
+
+.veltora-whatsapp-float {
+    position: fixed;
+    left: 25px;
+    bottom: 25px;
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    min-height: 66px;
+    padding: 8px 18px 8px 9px;
+
+    background: var(--second-color);
+    color: var(--white-color);
+
+    border: 1px solid rgba(244, 180, 0, 0.45);
+    border-radius: 50px;
+
+    text-decoration: none;
+
+    box-shadow:
+        0 8px 28px rgba(11, 44, 95, 0.24),
+        0 0 0 6px rgba(244, 180, 0, 0.08);
+
+    pointer-events: auto;
+
+    transition:
+        transform 0.35s var(--ease),
+        box-shadow 0.35s var(--ease),
+        border-color 0.35s ease;
+
+    animation: veltoraWhatsAppAppear 0.8s var(--ease) both;
+}
+
+
+/* WHATSAPP ICON CIRCLE */
+
+.veltora-whatsapp-icon {
+    width: 48px;
+    height: 48px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--float-whatsapp-green);
+    color: #ffffff;
+
+    border-radius: 50%;
+
+    box-shadow:
+        0 4px 12px rgba(37, 211, 102, 0.30),
+        inset 0 0 0 2px rgba(255, 255, 255, 0.25);
+
+    transition: transform 0.35s var(--ease);
+}
+
+.veltora-whatsapp-icon i {
+    font-size: 28px;
+    line-height: 1;
+}
+
+
+/* WHATSAPP TEXT */
+
+.veltora-whatsapp-text {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    white-space: nowrap;
+}
+
+.veltora-whatsapp-text strong {
+    color: var(--white-color);
+
+    font-family: var(--body-font);
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.veltora-whatsapp-text small {
+    color: rgba(255, 255, 255, 0.82);
+
+    font-family: var(--body-font);
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+
+/* HOVER EFFECT */
+
+.veltora-whatsapp-float:hover {
+    transform: translateY(-5px);
+
+    border-color: var(--accent-color);
+
+    box-shadow:
+        0 14px 35px rgba(11, 44, 95, 0.30),
+        0 0 0 8px rgba(244, 180, 0, 0.10);
+}
+
+.veltora-whatsapp-float:hover .veltora-whatsapp-icon {
+    transform: scale(1.08);
+}
+
+/* ==========================================
+   BACK TO TOP BUTTON
+========================================== */
+
+.veltora-back-to-top {
+    position: fixed;
+    right: 28px;
+    bottom: 27px;
+
+    width: 62px;
+    height: 62px;
+
+    padding: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(11, 44, 95, 0.12);
+    border-radius: 50%;
+
+    background: var(--white-color);
+    color: var(--first-color);
+
+    cursor: pointer;
+    pointer-events: auto;
+
+    box-shadow:
+        0 8px 25px rgba(11, 44, 95, 0.12),
+        0 0 0 5px rgba(11, 44, 95, 0.035);
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(16px) scale(0.88);
+
+    transition:
+        opacity 0.35s ease,
+        visibility 0.35s ease,
+        transform 0.4s var(--ease),
+        box-shadow 0.35s ease,
+        background 0.3s ease;
+}
+
+
+/* VISIBLE STATE */
+
+.veltora-back-to-top.is-visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+}
+
+
+/* PROGRESS SVG */
+
+.veltora-progress-ring {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    transform: rotate(-90deg);
+    overflow: visible;
+}
+
+.veltora-progress-ring circle {
+    fill: none;
+    stroke-width: 2.6;
+}
+
+.veltora-progress-track {
+    stroke: rgba(11, 44, 95, 0.10);
+}
+
+.veltora-progress-value {
+    stroke: var(--accent-color);
+    stroke-linecap: round;
+
+    stroke-dasharray: 169.65;
+    stroke-dashoffset: 169.65;
+
+    transition: stroke-dashoffset 0.12s linear;
+}
+
+
+/* ARROW CIRCLE */
+
+.veltora-back-to-top-icon {
+    width: 43px;
+    height: 43px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: var(--gradient-primary);
+    color: var(--accent-color);
+
+    transition:
+        transform 0.35s var(--ease),
+        background 0.3s ease,
+        color 0.3s ease;
+}
+
+.veltora-back-to-top-icon i {
+    font-size: 18px;
+}
+
+
+/* BUTTON HOVER */
+
+.veltora-back-to-top:hover {
+    background: var(--first-color);
+
+    box-shadow:
+        0 12px 30px rgba(11, 44, 95, 0.25),
+        0 0 0 7px rgba(244, 180, 0, 0.12);
+
+    transform: translateY(-5px) scale(1.03);
+}
+
+.veltora-back-to-top:hover .veltora-back-to-top-icon {
+    transform: translateY(-3px);
+    background: var(--accent-color);
+    color: var(--first-color);
+}
+
+
+/* TOOLTIP */
+
+.veltora-back-tooltip {
+    position: absolute;
+    right: 76px;
+    top: 50%;
+
+    padding: 10px 14px;
+
+    background: var(--title-color);
+    color: var(--white-color);
+
+    font-family: var(--body-font);
+    font-size: 12px;
+    font-weight: 600;
+
+    border-radius: 8px;
+    white-space: nowrap;
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translate(7px, -50%);
+
+    transition:
+        opacity 0.25s ease,
+        visibility 0.25s ease,
+        transform 0.25s ease;
+
+    box-shadow: var(--box-shadow);
+}
+
+.veltora-back-tooltip::after {
+    content: "";
+
+    position: absolute;
+    right: -5px;
+    top: 50%;
+
+    width: 10px;
+    height: 10px;
+
+    background: var(--title-color);
+
+    transform: translateY(-50%) rotate(45deg);
+}
+
+.veltora-back-to-top:hover .veltora-back-tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(0, -50%);
+}
+
+
+/* ==========================================
+   ENTRANCE ANIMATION
+========================================== */
+
+@keyframes veltoraWhatsAppAppear {
+    from {
+        opacity: 0;
+        transform: translateX(-25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+/* ==========================================
+   RESPONSIVE DESIGN
+========================================== */
+
+@media (max-width: 768px) {
+
+    .veltora-whatsapp-float {
+        left: 15px;
+        bottom: 17px;
+
+        min-height: 55px;
+        gap: 9px;
+        padding: 6px 13px 6px 7px;
+    }
+
+    .veltora-whatsapp-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .veltora-whatsapp-icon i {
+        font-size: 24px;
+    }
+
+    .veltora-whatsapp-text strong {
+        font-size: 12px;
+    }
+
+    .veltora-whatsapp-text small {
+        font-size: 10px;
+    }
+
+    .veltora-back-to-top {
+        right: 16px;
+        bottom: 18px;
+
+        width: 53px;
+        height: 53px;
+    }
+
+    .veltora-back-to-top-icon {
+        width: 37px;
+        height: 37px;
+    }
+
+    .veltora-back-tooltip {
+        display: none;
+    }
+
+}
+
+
+@media (max-width: 380px) {
+
+    .veltora-whatsapp-float {
+        min-height: 49px;
+        gap: 7px;
+        padding-right: 11px;
+    }
+
+    .veltora-whatsapp-icon {
+        width: 35px;
+        height: 35px;
+    }
+
+    .veltora-whatsapp-icon i {
+        font-size: 21px;
+    }
+
+    .veltora-whatsapp-text strong {
+        font-size: 11px;
+    }
+
+    .veltora-whatsapp-text small {
+        font-size: 9px;
+    }
+
+}
+
+
+/* REDUCED MOTION ACCESSIBILITY */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .veltora-whatsapp-float {
+        animation: none;
+    }
+
+    .veltora-whatsapp-float,
+    .veltora-whatsapp-icon,
+    .veltora-back-to-top,
+    .veltora-back-to-top-icon,
+    .veltora-progress-value {
+        transition: none;
+    }
+
+}
+
+/* ==========================================
+   FLOATING WIDGET REFINEMENT
+========================================== */
+.veltora-floating-tools {
+    z-index: 10000;
+}
+
+.veltora-whatsapp-float {
+    box-sizing: border-box;
+    width: 68px;
+    height: 68px;
+    min-height: 68px;
+    padding: 7px;
+    gap: 0;
+    overflow: visible;
+    isolation: isolate;
+    background: var(--gradient-primary, var(--second-color));
+    border-color: var(--accent-color);
+    box-shadow: var(--box-shadow);
+    transform: none;
+    transition:
+        width .42s var(--ease),
+        padding .42s var(--ease),
+        gap .3s var(--ease),
+        border-color .3s var(--ease),
+        box-shadow .3s var(--ease);
+}
+
+.veltora-whatsapp-float::before,
+.veltora-whatsapp-float::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    border: 1px solid rgba(37, 211, 102, .28);
+    border-radius: 50%;
+    pointer-events: none;
+    animation: veltoraWhatsAppRipple 3.8s var(--ease) infinite;
+}
+
+.veltora-whatsapp-float::after {
+    border-color: rgba(244, 180, 0, .18);
+    animation-delay: 1.9s;
+}
+
+.veltora-whatsapp-icon {
+    position: relative;
+    z-index: 1;
+    box-sizing: border-box;
+    width: 52px;
+    height: 52px;
+    background: #25d366;
+}
+
+.veltora-whatsapp-icon i {
+    font-size: 29px;
+}
+
+.veltora-whatsapp-text {
+    position: relative;
+    z-index: 1;
+    flex: 0 0 0;
+    width: 0;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    transition:
+        flex-basis .35s var(--ease),
+        width .35s var(--ease),
+        opacity .2s ease,
+        visibility .2s ease;
+}
+
+.veltora-whatsapp-arrow {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex: 0 0 0;
+    width: 0;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    color: var(--accent-color);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-4px);
+    transition:
+        flex-basis .3s var(--ease),
+        width .3s var(--ease),
+        opacity .2s ease,
+        transform .3s var(--ease),
+        visibility .2s ease;
+}
+
+.veltora-whatsapp-arrow svg {
+    display: block;
+    width: 18px;
+    height: 18px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2.2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.veltora-whatsapp-float:hover::before,
+.veltora-whatsapp-float:hover::after,
+.veltora-whatsapp-float:focus-visible::before,
+.veltora-whatsapp-float:focus-visible::after {
+    animation-play-state: paused;
+    opacity: 0;
+}
+
+.veltora-back-to-top {
+    box-sizing: border-box;
+    width: 62px;
+    height: 62px;
+    z-index: 1;
+    background: var(--first-color);
+    border: 1px solid var(--accent-color);
+    color: var(--accent-color);
+}
+
+.veltora-progress-ring {
+    z-index: 0;
+    pointer-events: none;
+}
+
+.veltora-progress-track {
+    stroke: rgba(255, 255, 255, .3);
+}
+
+.veltora-progress-value {
+    stroke: var(--accent-color);
+}
+
+.veltora-back-to-top-icon {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    width: auto;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    pointer-events: none;
+}
+
+.veltora-back-to-top-icon i {
+    display: block;
+    color: var(--accent-color);
+    font-size: 24px;
+    line-height: 1;
+}
+
+.veltora-back-to-top:hover .veltora-back-to-top-icon {
+    transform: none;
+    background: transparent;
+    color: var(--accent-color);
+}
+
+.veltora-back-tooltip {
+    right: 76px;
+    background: var(--first-color);
+    color: var(--white-color);
+    border: 1px solid var(--accent-color);
+}
+
+.veltora-back-tooltip::after {
+    background: var(--first-color);
+}
+
+@keyframes veltoraWhatsAppRipple {
+    0% {
+        transform: scale(.96);
+        opacity: .55;
+    }
+    100% {
+        transform: scale(1.85);
+        opacity: 0;
+    }
+}
+
+@media (hover: hover) and (pointer: fine) and (min-width: 769px) {
+    .veltora-whatsapp-float:hover,
+    .veltora-whatsapp-float:focus-visible {
+        width: 300px;
+        padding-right: 20px;
+        gap: 8px;
+        transform: none;
+        border-color: var(--accent-color);
+        box-shadow: var(--box-shadow);
+    }
+
+    .veltora-whatsapp-float:hover .veltora-whatsapp-text,
+    .veltora-whatsapp-float:focus-visible .veltora-whatsapp-text {
+        flex-basis: 175px;
+        width: 175px;
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .veltora-whatsapp-float:hover .veltora-whatsapp-arrow,
+    .veltora-whatsapp-float:focus-visible .veltora-whatsapp-arrow {
+        flex-basis: 18px;
+        width: 18px;
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(0);
+    }
+
+    .veltora-back-to-top:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--box-shadow);
+    }
+
+    .veltora-back-to-top:hover .veltora-back-tooltip,
+    .veltora-back-to-top:focus-visible .veltora-back-tooltip {
+        opacity: 1;
+        visibility: visible;
+        transform: translate(0, -50%);
+    }
+}
+
+@media (max-width: 768px) {
+    .veltora-whatsapp-float {
+        left: 16px;
+        bottom: max(16px, env(safe-area-inset-bottom));
+        width: 58px;
+        height: 58px;
+        min-height: 58px;
+        padding: 6px;
+    }
+
+    .veltora-whatsapp-icon {
+        width: 44px;
+        height: 44px;
+    }
+
+    .veltora-whatsapp-icon i {
+        font-size: 25px;
+    }
+
+    .veltora-whatsapp-text {
+        display: none;
+    }
+
+    .veltora-whatsapp-arrow {
+        display: none;
+    }
+
+    .veltora-back-to-top {
+        right: 16px;
+        bottom: max(16px, env(safe-area-inset-bottom));
+        width: 54px;
+        height: 54px;
+    }
+
+    .veltora-back-tooltip {
+        display: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .veltora-whatsapp-float,
+    .veltora-whatsapp-icon,
+    .veltora-whatsapp-text,
+    .veltora-whatsapp-arrow,
+    .veltora-back-to-top,
+    .veltora-progress-value {
+        animation: none;
+        transition: none;
+    }
+
+    .veltora-whatsapp-float::before,
+    .veltora-whatsapp-float::after {
+        animation: none;
+        display: none;
     }
 }
 

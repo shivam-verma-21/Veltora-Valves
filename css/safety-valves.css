@@ -1,0 +1,602 @@
+/* =========================================================
+   VELTORA SAFETY VALVES
+   New styles for product actions and specification modal.
+   Existing ball-* page sections remain styled by products.css.
+========================================================= */
+
+/* Each safety product card has one product image, so use the full visual area. */
+body:has(.safety-product-actions) .ball-product-images {
+    grid-template-columns: minmax(0, 1fr);
+}
+
+body:has(.safety-product-actions) .ball-product-image {
+    width: 100%;
+}
+
+body:has(.safety-product-actions) .ball-product-image:first-child::after {
+    display: none;
+}
+
+.safety-product-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 9px;
+    margin-top: 20px;
+}
+
+.safety-product-actions a,
+.safety-product-actions button {
+    min-height: 43px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 12px;
+    border-radius: 7px;
+    font: inherit;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.25;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background .25s ease, color .25s ease, border-color .25s ease, transform .25s ease, box-shadow .25s ease;
+}
+
+.safety-spec-btn {
+    color: #0b2c5f;
+    background: #fff;
+    border: 1px solid #c9d8ed;
+}
+
+.safety-spec-btn:hover {
+    color: #fff;
+    background: #0b2c5f;
+    border-color: #0b2c5f;
+    transform: translateY(-2px);
+    box-shadow: 0 7px 18px rgba(11, 44, 95, .13);
+}
+
+.safety-whatsapp-btn {
+    color: #fff;
+    background: #148b55;
+    border: 1px solid #148b55;
+}
+
+.safety-whatsapp-btn:hover {
+    background: #0c7546;
+    border-color: #0c7546;
+    transform: translateY(-2px);
+    box-shadow: 0 7px 18px rgba(20, 139, 85, .18);
+}
+
+/* MODAL SHELL */
+.safety-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    display: grid;
+    place-items: center;
+    padding: 22px;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity .25s ease, visibility .25s ease;
+}
+
+.safety-modal.is-open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.safety-modal-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(7, 20, 43, .68);
+    backdrop-filter: blur(7px);
+}
+
+.safety-modal-dialog {
+    position: relative;
+    z-index: 1;
+    width: min(1120px, 100%);
+    max-height: min(90vh, 900px);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    color: #102344;
+    background: #fff;
+    border: 1px solid rgba(204, 218, 237, .95);
+    border-radius: 15px;
+    box-shadow: 0 28px 90px rgba(2, 17, 43, .3);
+    transform: translateY(18px) scale(.985);
+    transition: transform .28s ease;
+}
+
+.safety-modal.is-open .safety-modal-dialog {
+    transform: translateY(0) scale(1);
+}
+
+.safety-modal-header {
+    min-height: 74px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 15px 22px;
+    border-bottom: 1px solid #dce5f0;
+    background: #fff;
+}
+
+.safety-modal-eyebrow {
+    display: block;
+    margin-bottom: 5px;
+    color: #b27b00;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.4px;
+}
+
+.safety-modal-header h2 {
+    margin: 0;
+    color: #102b55;
+    font-size: 20px;
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.safety-modal-close {
+    width: 38px;
+    height: 38px;
+    flex: 0 0 38px;
+    display: grid;
+    place-items: center;
+    color: #17365f;
+    background: #f0f4f9;
+    border: 1px solid #dce5f0;
+    border-radius: 9px;
+    font-size: 17px;
+    cursor: pointer;
+    transition: .2s ease;
+}
+
+.safety-modal-close:hover {
+    color: #fff;
+    background: #0b2c5f;
+    border-color: #0b2c5f;
+}
+
+.safety-modal-body {
+    min-height: 0;
+    display: grid;
+    grid-template-columns: minmax(0, .96fr) minmax(0, 1.04fr);
+    overflow: auto;
+}
+
+/* LEFT: IMAGE GALLERY */
+.safety-modal-gallery {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    background: #f2f6fb;
+    border-right: 1px solid #dce5f0;
+}
+
+.safety-gallery-main {
+    position: relative;
+    min-height: 390px;
+    flex: 1 1 auto;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    background: linear-gradient(145deg, #f8fbff 0%, #e8eff7 100%);
+    border: 1px solid #d5e0ed;
+    border-radius: 11px;
+    box-shadow: inset 0 0 0 5px rgba(255, 255, 255, .45);
+}
+
+.safety-gallery-main::after {
+    content: "";
+    position: absolute;
+    left: 13%;
+    right: 13%;
+    bottom: 10%;
+    height: 22px;
+    border-radius: 50%;
+    background: rgba(26, 54, 91, .13);
+    filter: blur(16px);
+    pointer-events: none;
+}
+
+.safety-gallery-main > img {
+    position: relative;
+    z-index: 1;
+    display: block;
+    width: 85%;
+    height: 355px;
+    object-fit: contain;
+    mix-blend-mode: multiply;
+}
+
+.safety-gallery-main > img[hidden] {
+    display: none;
+}
+
+.safety-gallery-tag {
+    position: absolute;
+    z-index: 3;
+    top: 13px;
+    left: 13px;
+    padding: 6px 9px;
+    color: #0b2c5f;
+    background: rgba(255, 255, 255, .94);
+    border: 1px solid #d9e3ef;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: .7px;
+}
+
+.safety-gallery-thumbnails {
+    display: flex;
+    justify-content: center;
+    gap: 9px;
+    margin-top: 12px;
+}
+
+.safety-thumb {
+    width: 82px;
+    min-height: 78px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 6px;
+    color: #25436b;
+    background: #fff;
+    border: 1px solid #d8e2ef;
+    border-radius: 7px;
+    font: inherit;
+    font-size: 11px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: .2s ease;
+}
+
+.safety-thumb:hover,
+.safety-thumb.active {
+    border-color: #f0a900;
+    box-shadow: 0 4px 14px rgba(11, 44, 95, .1);
+}
+
+.safety-thumb img {
+    width: 48px;
+    height: 43px;
+    object-fit: contain;
+}
+
+.safety-thumb-diagram {
+    width: 48px;
+    height: 43px;
+    display: grid;
+    place-items: center;
+    color: #476b9c;
+    background: #f1f5fa;
+    border-radius: 4px;
+    font-size: 22px;
+}
+
+.safety-gallery-caption {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    margin-top: 13px;
+    color: #6b7f9a;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.safety-gallery-caption i {
+    color: #f0ab00;
+    font-size: 8px;
+}
+
+/* Explicit placeholder until genuine model drawing is supplied */
+.safety-diagram-placeholder {
+    position: relative;
+    z-index: 2;
+    width: 85%;
+    min-height: 280px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 25px;
+    color: #31557f;
+    text-align: center;
+    background-color: #f5f9ff;
+    background-image: linear-gradient(rgba(42, 91, 145, .055) 1px, transparent 1px), linear-gradient(90deg, rgba(42, 91, 145, .055) 1px, transparent 1px);
+    background-size: 20px 20px;
+    border: 1px dashed #aabed8;
+    border-radius: 8px;
+}
+
+.safety-diagram-placeholder[hidden] {
+    display: none !important;
+}
+
+.safety-diagram-placeholder i {
+    font-size: 42px;
+    color: #587da9;
+}
+
+.safety-diagram-placeholder strong {
+    color: #153b6d;
+    font-size: 15px;
+}
+
+.safety-diagram-placeholder span {
+    max-width: 230px;
+    color: #6b7f99;
+    font-size: 11px;
+    line-height: 1.6;
+}
+
+/* RIGHT: DETAILS */
+.safety-modal-details {
+    min-width: 0;
+    padding: 22px 25px 20px;
+    background: #fff;
+}
+
+.safety-modal-product-heading > span {
+    display: inline-block;
+    margin-bottom: 7px;
+    color: #b47d00;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: .9px;
+}
+
+.safety-modal-product-heading h2 {
+    margin: 0 0 9px;
+    color: #102b55;
+    font-size: clamp(22px, 2.1vw, 29px);
+    font-weight: 800;
+    line-height: 1.16;
+}
+
+.safety-modal-product-heading p {
+    margin: 0;
+    color: #536883;
+    font-size: 14px;
+    line-height: 1.75;
+}
+
+.safety-modal-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 13px 0 14px;
+}
+
+.safety-modal-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 6px 8px;
+    color: #31547f;
+    background: #f4f7fb;
+    border: 1px solid #dce6f1;
+    border-radius: 4px;
+    font-size: 11px;
+    line-height: 1.2;
+}
+
+.safety-modal-tag i {
+    color: #d69a00;
+    font-size: 10px;
+}
+
+.safety-specification-table {
+    border-top: 1px solid #dbe4ef;
+}
+
+.safety-spec-row {
+    display: grid;
+    grid-template-columns: minmax(115px, .8fr) minmax(0, 1.2fr);
+    gap: 12px;
+    padding: 8px 0;
+    border-bottom: 1px solid #dbe4ef;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.safety-spec-label {
+    color: #153b6d;
+    font-weight: 800;
+}
+
+.safety-spec-value {
+    color: #536b8b;
+    overflow-wrap: anywhere;
+}
+
+.safety-modal-note {
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+    margin-top: 12px;
+    padding: 10px 11px;
+    color: #61748e;
+    background: #f6f8fb;
+    border: 1px solid #e0e7f0;
+    border-radius: 6px;
+}
+
+.safety-modal-note i {
+    margin-top: 2px;
+    color: #c18a09;
+    font-size: 13px;
+}
+
+.safety-modal-note p {
+    margin: 0;
+    font-size: 11px;
+    line-height: 1.65;
+}
+
+.safety-modal-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 9px;
+    margin-top: 13px;
+}
+
+.safety-modal-actions a {
+    min-height: 43px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 800;
+    text-align: center;
+    text-decoration: none;
+    transition: .2s ease;
+}
+
+.safety-modal-quote {
+    color: #132f58;
+    background: #ffc329;
+    border: 1px solid #efad09;
+}
+
+.safety-modal-quote:hover {
+    background: #f2b20e;
+    transform: translateY(-2px);
+}
+
+.safety-modal-whatsapp {
+    color: #14784b;
+    background: #fff;
+    border: 1px solid #bfdccf;
+}
+
+.safety-modal-whatsapp:hover {
+    color: #fff;
+    background: #148b55;
+    border-color: #148b55;
+    transform: translateY(-2px);
+}
+
+body.safety-modal-open {
+    overflow: hidden;
+}
+
+@media (max-width: 850px) {
+    .safety-modal {
+        padding: 12px;
+    }
+
+    .safety-modal-dialog {
+        max-height: 94vh;
+    }
+
+    .safety-modal-body {
+        grid-template-columns: 1fr;
+    }
+
+    .safety-modal-gallery {
+        border-right: 0;
+        border-bottom: 1px solid #dce5f0;
+    }
+
+    .safety-gallery-main {
+        min-height: 290px;
+    }
+
+    .safety-gallery-main > img {
+        height: 260px;
+    }
+
+    .safety-diagram-placeholder {
+        min-height: 220px;
+    }
+
+    .safety-modal-details {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 520px) {
+    .safety-product-actions {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 7px;
+    }
+
+    .safety-product-actions a,
+    .safety-product-actions button {
+        min-width: 0;
+        gap: 5px;
+        padding: 9px 5px;
+        font-size: clamp(10px, 3vw, 12px);
+        white-space: nowrap;
+    }
+
+    .safety-modal {
+        padding: 7px;
+    }
+
+    .safety-modal-dialog {
+        max-height: 96vh;
+        border-radius: 10px;
+    }
+
+    .safety-modal-header {
+        min-height: 65px;
+        padding: 12px 14px;
+    }
+
+    .safety-modal-header h2 {
+        font-size: 16px;
+    }
+
+    .safety-modal-gallery {
+        padding: 10px;
+    }
+
+    .safety-gallery-main {
+        min-height: 230px;
+    }
+
+    .safety-gallery-main > img {
+        height: 205px;
+    }
+
+    .safety-thumb {
+        width: 76px;
+        min-height: 70px;
+    }
+
+    .safety-modal-details {
+        padding: 16px 13px;
+    }
+
+    .safety-spec-row {
+        grid-template-columns: 112px minmax(0, 1fr);
+        gap: 8px;
+        font-size: 11px;
+    }
+
+    .safety-modal-actions {
+        grid-template-columns: 1fr;
+    }
+}

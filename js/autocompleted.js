@@ -3,121 +3,78 @@ const headerContainer = document.getElementById("header");
 function initializeAutocomplete() {
 
 
-    const availablekeywords = {
+    const keywordLinks = {
+        // Category pages linked in the existing product menu.
+        "automation": "automation.html",
+        "ball valves": "ball-valves.html",
+        "butterfly valves": "butterfly-valves.html",
+        "check valves": "check-valves.html",
+        "gate valves": "gate-valves.html",
+        "globe valves": "globe-valves.html",
+        "safety valves": "safety-valves.html",
+        "y-type strainers": "y-type-basket-strainers.html",
+        "y-type & basket type strainers": "y-type-basket-strainers.html",
+        "glass lined valves": "glass-lined-valves.html",
 
-        /* ===========================
-           Category: Industrial Valves
-        ============================ */
+        // Automation product pages linked in header.html.
+        "solenoid control valves": "automation-control-valves-solenoid.html",
+        "electric actuated ball valves": "automation-electric-actuated-ball-valve.html",
+        "automated gate valves": "automation-actuated-gate-valves.html",
+        "pneumatic control valves": "automation-pneumatic-valves.html",
 
-        "industrial valves": "/industrial-valves.html",
-        "industrial valve manufacturer": "/industrial-valves.html",
-        "valve manufacturer in india": "/industrial-valves.html",
-        "valve manufacturer in ahmedabad": "/industrial-valves.html",
+        // Ball valve product pages linked in header.html.
+        "1-piece flanged end ball valve": "ball-valve-one-piece.html",
+        "one piece ball valve": "ball-valve-one-piece.html",
+        "one-piece ball valve": "ball-valve-one-piece.html",
+        "2-piece flanged end ball valve": "ball-valve-two-piece.html",
+        "two piece ball valve": "ball-valve-two-piece.html",
+        "two-piece ball valve": "ball-valve-two-piece.html",
+        "3-piece flanged end ball valve": "ball-valve-three-piece.html",
+        "three piece ball valve": "ball-valve-three-piece.html",
+        "three-piece ball valve": "ball-valve-three-piece.html",
+        "1-piece threaded ball valve": "ball-valve-one-piece-threaded.html",
+        "one piece threaded ball valve": "ball-valve-one-piece-threaded.html",
+        "one-piece threaded ball valve": "ball-valve-one-piece-threaded.html",
+        "2-piece threaded ball valve": "ball-valve-two-piece-threaded.html",
+        "two piece threaded ball valve": "ball-valve-two-piece-threaded.html",
+        "two-piece threaded ball valve": "ball-valve-two-piece-threaded.html",
+        "3-piece threaded ball valve": "ball-valve-three-piece-threaded.html",
+        "three piece threaded ball valve": "ball-valve-three-piece-threaded.html",
+        "three-piece threaded ball valve": "ball-valve-three-piece-threaded.html",
+        "3-way ball valve": "ball-valve-three-way-flanged.html",
+        "three way ball valve": "ball-valve-three-way-flanged.html",
+        "3-piece forged steel full bore ball valve": "ball-valves-forged-steel-full-bore.html",
+        "forged steel full bore ball valve": "ball-valves-forged-steel-full-bore.html",
 
-        /* ===========================
-           Category: Ball Valves
-        ============================ */
+        // Butterfly valve product pages linked in header.html.
+        "high performance offset disc butterfly valve": "butterfly-valve-offset-disc.html",
+        "wafer butterfly valve": "butterfly-valves-wafer.html",
+        "lug style butterfly valve": "butterfly-valves-lug-style.html",
+        "double flange butterfly valve": "butterfly-valves-double-flanged.html",
+        "ptfe seated butterfly valve": "butterfly-valve-ptfe-seated.html",
 
-        "ball valves": "/ball-valves.html",
-        "ball valve manufacturer": "/ball-valves.html",
-        "ball valve supplier india": "/ball-valves.html",
-        "flanged ball valve": "/flanged-ball-valve.html",
-        "screwed ball valve": "/screwed-ball-valve.html",
-        "one piece ball valve": "/one-piece-ball-valve.html",
-        "two piece ball valve": "/two-piece-ball-valve.html",
-        "three piece ball valve": "/three-piece-ball-valve.html",
-        "three way ball valve": "/three-way-ball-valve.html",
-        "jacketed ball valve": "/jacketed-ball-valve.html",
-        "high pressure ball valve": "/high-pressure-ball-valve.html",
-        "ss ball valve": "/stainless-steel-ball-valve.html",
-        "carbon steel ball valve": "/carbon-steel-ball-valve.html",
+        // Check valve product pages linked in header.html.
+        "forged steel check valve": "check-valves-forged-steel.html",
+        "disc check valve": "check-valves-disc.html",
+        "dual plate check valve": "check-valves-dual-plate.html",
+        "swing check valve": "check-valves-swing.html",
+        "wafer check valve": "check-valves-wafer.html",
+        "general purpose check valves": "check-valves-general-purpose.html",
 
-        /* ===========================
-           Category: Gate Valves
-        ============================ */
+        // Gate valve product pages linked in header.html.
+        "stainless steel gate valve": "gate-valves-stainless-steel.html",
+        "forged steel gate valve": "gate-valves-forged-steel.html",
+        "resilient seated gate valves": "gate-valves-resilient-seated.html",
 
-        "gate valves": "/gate-valves.html",
-        "gate valve manufacturer": "/gate-valves.html",
-        "flanged gate valve": "/flanged-gate-valve.html",
-        "forged steel gate valve": "/forged-steel-gate-valve.html",
-        "cast steel gate valve": "/cast-steel-gate-valve.html",
-        "api gate valve": "/api-gate-valve.html",
-
-        /* ===========================
-           Category: Globe Valves
-        ============================ */
-
-        "globe valves": "/globe-valves.html",
-        "globe valve manufacturer": "/globe-valves.html",
-        "flanged globe valve": "/flanged-globe-valve.html",
-        "forged globe valve": "/forged-globe-valve.html",
-        "high pressure globe valve": "/high-pressure-globe-valve.html",
-
-        /* ===========================
-           Category: Check Valves
-        ============================ */
-
-        "check valves": "/check-valves.html",
-        "non return valve": "/check-valves.html",
-        "nr valve": "/check-valves.html",
-        "swing check valve": "/swing-check-valve.html",
-        "lift check valve": "/lift-check-valve.html",
-        "dual plate check valve": "/dual-plate-check-valve.html",
-
-        /* ===========================
-           Category: Butterfly Valves
-        ============================ */
-
-        "butterfly valves": "/butterfly-valves.html",
-        "butterfly valve manufacturer": "/butterfly-valves.html",
-        "lug type butterfly valve": "/lug-type-butterfly-valve.html",
-        "wafer type butterfly valve": "/wafer-type-butterfly-valve.html",
-        "double eccentric butterfly valve": "/double-eccentric-butterfly-valve.html",
-
-        /* ===========================
-           Category: Safety Valves
-        ============================ */
-
-        "safety valves": "/safety-valves.html",
-        "pressure safety valve": "/pressure-safety-valve.html",
-        "industrial safety valve": "/industrial-safety-valve.html",
-
-        /* ===========================
-           Category: Strainers
-        ============================ */
-
-        "y strainer": "/y-strainer.html",
-        "industrial strainer": "/y-strainer.html",
-        "pipeline strainer": "/y-strainer.html",
-
-        /* ===========================
-           Category: Actuators & Automation
-        ============================ */
-
-        "actuated valves": "/actuated-valves.html",
-        "pneumatic actuated valve": "/pneumatic-actuated-valve.html",
-        "electric actuated valve": "/electric-actuated-valve.html",
-        "valve automation": "/valve-automation.html",
-
-        /* ===========================
-           Category: Materials
-        ============================ */
-
-        "stainless steel valves": "/stainless-steel-valves.html",
-        "carbon steel valves": "/carbon-steel-valves.html",
-        "forged steel valves": "/forged-steel-valves.html",
-
-        /* ===========================
-           Category: Industries (SEO Boost)
-        ============================ */
-
-        "valves for oil and gas": "/industries.html",
-        "valves for chemical industry": "/industries.html",
-        "valves for water treatment": "/industries.html",
-        "valves for power plant": "/industries.html",
-        "valves for pharma industry": "/industries.html"
-
+        // Globe valve product pages linked in header.html.
+        "stainless steel globe valve": "globe-valve-stainless-steel.html",
+        "stainless steel globe valves": "globe-valve-stainless-steel.html",
+        "forged steel globe valve": "globe-valve-forged-steel.html",
+        "forged steel globe valves": "globe-valve-forged-steel.html"
     };
+
+    const availablekeywords = Object.keys(keywordLinks);
+    const normalizeKeyword = (value) => value.toLowerCase().trim().replace(/\s+/g, " ");
 
     const resultBox = document.querySelector(".result-box");
     const main = document.querySelector(".main");
@@ -137,8 +94,12 @@ function initializeAutocomplete() {
         toastActive = true;
 
         let toastBox = document.getElementById("toastBox");
+        if (!toastBox) return;
+
         let toast = document.createElement('div');
-        toast.classList.add("toast");
+        toast.classList.add("toast", "search-feedback");
+        toast.setAttribute("role", "status");
+        toast.setAttribute("aria-live", "polite");
         toast.innerHTML = value;
         toastBox.appendChild(toast);
 
@@ -164,11 +125,11 @@ function initializeAutocomplete() {
 
     // ⭐ Autocomplete typing
     inputBox.onkeyup = function () {
-        const input = inputBox.value.trim();
+        const input = normalizeKeyword(inputBox.value);
 
         if (input.length) {
-            const result = Object.keys(availablekeywords).filter((keyword) =>
-                keyword.toLowerCase().includes(input.toLowerCase())
+            const result = availablekeywords.filter((keyword) =>
+                keyword.includes(input)
             );
             display(result);
         } else {
@@ -185,79 +146,25 @@ function initializeAutocomplete() {
     });
 
     // ========== SEARCH REDIRECT ==========
-    const keywordLinks = {
-        // Category: Printing Inks
-        "printing inks": "../printing_inc.html",
-        "flexographic printing ink": "/flexographic-printing-ink.html",
-        "gravure printing ink": "/gravure-printing-ink.html",
-        "screen printing ink": "/screen-printing-ink.html",
-        "offset printing ink": "/offset-printing-ink.html",
-        "packaging printing ink": "/packaging-printing-ink.html",
-        "lamination ink": "/lamination-ink.html",
-        "water based printing ink": "/water-based-printing-ink.html",
-        "solvent based printing ink": "/solvent-based-printing-ink.html",
-        "surface printing ink": "/surface-printing-ink.html",
-        "reverse printing ink": "/reverse-printing-ink.html",
-
-        // Category: Thinners
-        "thinners": "../thinners.html",
-        "general purpose thinner": "/general-purpose-thinner.html",
-        "nc thinner": "/nc-thinner.html",
-        "pu thinner": "/pu-thinner.html",
-        "flexo ink thinner": "/flexo-ink-thinner.html",
-        "gravure ink thinner": "/gravure-ink-thinner.html",
-        "fast dry thinner": "/fast-dry-thinner.html",
-        "slow dry thinner": "/slow-dry-thinner.html",
-        "industrial thinner": "/industrial-thinner.html",
-
-        // Category: Retarders
-        "retarders": "../retarders.html",
-        "printing ink retarder": "/printing-ink-retarder.html",
-        "flexographic retarder": "/flexographic-retarder.html",
-        "gravure retarder": "/gravure-retarder.html",
-        "screen printing retarder": "/screen-printing-retarder.html",
-        "slow evaporation retarder": "/slow-evaporation-retarder.html",
-        "anti drying retarder": "/anti-drying-retarder.html",
-
-        // Category: Specialty Products
-        "specialty products": "/specialty-products.html",
-        "ink additives": "/ink-additives.html",
-        "ink reducer": "/ink-reducer.html",
-        "printing solvents": "/printing-solvents.html",
-        "cleaning solvents": "/cleaning-solvents.html",
-        "press wash chemicals": "/press-wash-chemicals.html",
-        "printing auxiliary chemicals": "printing-auxiliary-chemicals.html",
-        "specialty printing chemicals": "specialty-printing-chemicals.html"
-    };
-
     window.selectKeyword = function (keyword) {
-        const key = keyword.toLowerCase();
+        const key = normalizeKeyword(keyword);
         const page = keywordLinks[key];
         if (page) window.location.href = page;
     };
 
     // ⭐ Best match (exact + partial)
     function findBestMatch(input) {
-        const lowerInput = input.toLowerCase().trim();
-
-        if (keywordLinks[lowerInput]) {
-            return keywordLinks[lowerInput];
-        }
-
-        const keys = Object.keys(keywordLinks);
-        const match = keys.find((k) => k.includes(lowerInput));
-
-        return match ? keywordLinks[match] : null;
+        return keywordLinks[normalizeKeyword(input)] || null;
     }
 
     // ⭐ Redirect on Enter or Search Icon
     function redirectSearch() {
-        const value = inputBox.value.trim().toLowerCase();
+        const value = normalizeKeyword(inputBox.value);
         if (!value) return showToast('<i class="fa-regular fa-circle-xmark"></i> Please type something.');
 
         const page = findBestMatch(value);
         if (page) window.location.href = page;
-        else showToast('<i class="fa-regular fa-circle-xmark"></i> No results found');
+        else showToast('<i class="fa-regular fa-circle-xmark"></i> No matching products found');
     }
 
     inputBox.addEventListener("keypress", (e) => {

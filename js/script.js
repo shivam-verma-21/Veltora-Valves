@@ -258,6 +258,75 @@ function initializeFallbackHeader(headerContainer) {
     });
 }
 
+function initFloatingTools(footer) {
+    const backToTop = footer.querySelector("#veltoraBackToTop");
+    const progressCircle = footer.querySelector("#veltoraProgressCircle");
+
+    // Footer injection may be retried; bind widget handlers only once.
+    if (!backToTop || !progressCircle || backToTop.dataset.floatingReady === "true") return;
+
+    backToTop.dataset.floatingReady = "true";
+
+    const circumference = 2 * Math.PI * 27;
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    progressCircle.style.strokeDasharray = circumference;
+
+    function updateFloatingTools() {
+        const scrollTop = window.scrollY;
+        const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = scrollHeight > 0 ? Math.min(scrollTop / scrollHeight, 1) : 0;
+
+        progressCircle.style.strokeDashoffset = circumference * (1 - progress);
+        backToTop.classList.toggle("is-visible", scrollTop > 300);
+    }
+
+    backToTop.addEventListener("click", () => {
+        window.scrollTo({
+            top: 0,
+            behavior: reducedMotion.matches ? "auto" : "smooth"
+        });
+    });
+
+    window.addEventListener("scroll", updateFloatingTools, { passive: true });
+    window.addEventListener("resize", updateFloatingTools);
+    updateFloatingTools();
+}
+
+function initVeltoraPreloader() {
+    const preloader = document.getElementById("veltoraPreloader");
+    if (!preloader || preloader.dataset.initialized === "true") return;
+
+    preloader.dataset.initialized = "true";
+    const root = document.documentElement;
+    root.classList.add("veltora-preloader-active");
+    root.setAttribute("aria-busy", "true");
+
+    let isClosing = false;
+    let fallbackTimer;
+
+    const closePreloader = () => {
+        if (isClosing) return;
+        isClosing = true;
+        window.clearTimeout(fallbackTimer);
+        preloader.classList.add("is-leaving");
+        root.classList.remove("veltora-preloader-active");
+        root.removeAttribute("aria-busy");
+        window.setTimeout(() => preloader.remove(), 650);
+    };
+
+    fallbackTimer = window.setTimeout(closePreloader, 18000);
+
+    if (document.readyState === "complete") {
+        window.requestAnimationFrame(closePreloader);
+    } else {
+        window.addEventListener("load", closePreloader, { once: true });
+    }
+
+    window.addEventListener("pageshow", event => {
+        if (event.persisted) closePreloader();
+    }, { once: true });
+}
+
 // Load Footer 
 function loadFooter() {
     const footer = document.getElementById("footer");
@@ -273,6 +342,7 @@ function loadFooter() {
         .then(data => {
             footer.innerHTML = data;
             initRevealAnimations(footer);
+            initFloatingTools(footer);
 
             const arrowAnimation = document.querySelector('.arrow i');
             const arrow = document.querySelector('.arrow');
@@ -314,6 +384,7 @@ function loadFooter() {
                 .then(data => {
                     footer.innerHTML = data;
                     initRevealAnimations(footer);
+                    initFloatingTools(footer);
                 })
                 .catch(err => console.error("Footer load failed:", err));
         });
@@ -321,6 +392,7 @@ function loadFooter() {
 
 // Initialize
 document.addEventListener("DOMContentLoaded", () => {
+    initVeltoraPreloader();
     loadHeader();
     loadFooter();
 });
