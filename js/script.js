@@ -482,3 +482,97 @@ if (sendBtn && sendBtn.dataset.bound !== "true") {
 
     sendBtn.dataset.bound = "true";
 }
+// Desktop product image magnifier. Uses the source image dimensions and the
+// actual object-fit: contain rectangle so transparent image margins stay accurate.
+(function initVeltoraProductMagnifier() {
+    if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches ||
+        window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    const images = document.querySelectorAll('.veltora-product-card__image');
+    images.forEach((image) => {
+        const stage = image.closest('.veltora-product-card__image-stage');
+        if (!stage || stage.querySelector('.veltora-product-magnifier') || !image.parentElement) return;
+
+        const lens = document.createElement('span');
+        lens.className = 'veltora-product-magnifier';
+        lens.setAttribute('aria-hidden', 'true');
+        stage.appendChild(lens);
+        const result = document.createElement('span');
+        result.className = 'veltora-product-magnifier__result';
+        result.setAttribute('aria-hidden', 'true');
+        document.body.appendChild(result);
+
+        let frame = 0;
+        let pointer = null;
+        const zoom = 2.7;
+
+        const update = () => {
+            frame = 0;
+            if (!pointer || !image.complete || !image.naturalWidth || !image.naturalHeight) return;
+
+            const stageRect = stage.getBoundingClientRect();
+            const imageRect = image.getBoundingClientRect();
+            const style = getComputedStyle(image);
+            const renderedScaleX = image.offsetWidth ? imageRect.width / image.offsetWidth : 1;
+            const renderedScaleY = image.offsetHeight ? imageRect.height / image.offsetHeight : 1;
+            const padX = ((parseFloat(style.paddingLeft) || 0) + (parseFloat(style.paddingRight) || 0)) * renderedScaleX;
+            const padY = ((parseFloat(style.paddingTop) || 0) + (parseFloat(style.paddingBottom) || 0)) * renderedScaleY;
+            const boxW = Math.max(0, imageRect.width - padX);
+            const boxH = Math.max(0, imageRect.height - padY);
+            const scale = Math.min(boxW / image.naturalWidth, boxH / image.naturalHeight);
+            const contentW = image.naturalWidth * scale;
+            const contentH = image.naturalHeight * scale;
+            const contentLeft = imageRect.left + (imageRect.width - boxW) / 2 + (boxW - contentW) / 2;
+            const contentTop = imageRect.top + (imageRect.height - boxH) / 2 + (boxH - contentH) / 2;
+            if (!contentW || !contentH) return;
+
+            const lensW = lens.offsetWidth;
+            const lensH = lens.offsetHeight;
+            const sourceX = Math.max(0, Math.min(image.naturalWidth, (pointer.x - contentLeft) / scale));
+            const sourceY = Math.max(0, Math.min(image.naturalHeight, (pointer.y - contentTop) / scale));
+            const cropW = result.clientWidth / (scale * zoom);
+            const cropH = result.clientHeight / (scale * zoom);
+            const focalX = Math.max(cropW / 2, Math.min(image.naturalWidth - cropW / 2, sourceX));
+            const focalY = Math.max(cropH / 2, Math.min(image.naturalHeight - cropH / 2, sourceY));
+            const selectionX = Math.max(0, Math.min(stageRect.width - lensW, contentLeft - stageRect.left + focalX * scale - lensW / 2));
+            const selectionY = Math.max(0, Math.min(stageRect.height - lensH, contentTop - stageRect.top + focalY * scale - lensH / 2));
+            lens.style.left = `${selectionX}px`;
+            lens.style.top = `${selectionY}px`;
+            result.style.backgroundImage = `url("${image.currentSrc || image.src}")`;
+            result.style.backgroundSize = `${image.naturalWidth * scale * zoom}px ${image.naturalHeight * scale * zoom}px`;
+            result.style.backgroundPosition = `${result.clientWidth / 2 - focalX * scale * zoom}px ${result.clientHeight / 2 - focalY * scale * zoom}px`;
+            const gap = 40;
+            const roomOnRight = window.innerWidth - stageRect.right - gap - 12;
+            const roomOnLeft = stageRect.left - gap - 12;
+            const placeRight = roomOnRight >= Math.min(220, result.offsetWidth);
+            const availableWidth = placeRight ? roomOnRight : roomOnLeft;
+            result.style.width = `${Math.max(220, Math.min(380, availableWidth))}px`;
+            result.style.left = `${placeRight
+                ? stageRect.right + gap
+                : Math.max(8, stageRect.left - gap - result.offsetWidth)}px`;
+            result.style.top = `${Math.max(8, Math.min(window.innerHeight - result.clientHeight - 8, stageRect.top + (stageRect.height - result.clientHeight) / 2))}px`;
+            lens.classList.add('is-visible');
+            result.classList.add('is-visible');
+        };
+
+        const queueUpdate = (event) => {
+            pointer = { x: event.clientX, y: event.clientY };
+            if (!frame) frame = requestAnimationFrame(update);
+        };
+
+        stage.addEventListener('mousemove', queueUpdate, { passive: true });
+        stage.addEventListener('mouseenter', queueUpdate, { passive: true });
+        stage.addEventListener('mouseleave', () => {
+            pointer = null;
+            if (frame) cancelAnimationFrame(frame);
+            frame = 0;
+            lens.classList.remove('is-visible');
+            result.classList.remove('is-visible');
+        });
+        image.addEventListener('load', () => { if (pointer && !frame) frame = requestAnimationFrame(update); });
+        image.addEventListener('error', () => {
+            lens.classList.remove('is-visible');
+            result.classList.remove('is-visible');
+        });
+    });
+})();
