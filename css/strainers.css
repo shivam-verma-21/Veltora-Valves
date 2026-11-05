@@ -607,3 +607,13 @@ body.strainer-modal-open {
     }
 }
 
+
+@media (max-width: 600px) {
+    .strainer-spec-btn,
+    .strainer-whatsapp-btn {
+        min-height: 44px;
+        padding: 9px 13px;
+        font-size: 13px;
+        line-height: 1.25;
+    }
+}

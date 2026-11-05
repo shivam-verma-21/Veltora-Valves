@@ -897,6 +897,18 @@ header .menu {
     z-index: 1000;
 }
 
+header .menu .menu-close-icon {
+    display: none;
+}
+
+header .menu.active .menu-open-icon {
+    display: none;
+}
+
+header .menu.active .menu-close-icon {
+    display: inline-block;
+}
+
 header .flex .logo {
     width: 300px;
     height: 70px;
@@ -2125,8 +2137,13 @@ input::placeholder {
     .industry-content::after {
         margin: 10px auto;
     }
-
 }
+
+@media (max-width: 360px) {
+    header .flex .logo { max-width: calc(100vw - 13rem); }
+    .slider-item { padding-inline: 18px; }
+}
+
 
 
 
@@ -2526,7 +2543,7 @@ input::placeholder {
 
 /* TITLE */
 .faqs-section h2 {
-    font-size: 2.6rem;
+    font-size: 2.35rem;
     font-weight: 700;
     color: var(--title-color);
     text-align: center;
@@ -2563,7 +2580,7 @@ input::placeholder {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 1.6rem;
+    font-size: 1.45rem;
     font-weight: 600;
     color: var(--title-color);
     cursor: pointer;
@@ -2591,7 +2608,7 @@ input::placeholder {
 
 /* ANSWER */
 .answer {
-    font-size: 1.45rem;
+    font-size: 1.3rem;
     color: var(--text-color2);
     margin-top: 10px;
     line-height: 1.6;
@@ -3467,6 +3484,7 @@ header .flex .navbar ul {
 
     header .flex .logo {
         width: min(24rem, 62vw);
+        min-width: 0;
         height: 5.2rem;
         margin: 0;
     }
@@ -3706,12 +3724,22 @@ header .flex .navbar ul {
     }
 
     header .flex .logo {
-        width: min(20rem, 64vw);
+        width: 100%;
+        max-width: min(20rem, calc(100vw - 15rem));
+        min-width: 0;
         height: 4.6rem;
     }
 
+    header .flex .logo .logo-img {
+        width: 4.4rem;
+        height: auto;
+        flex: 0 0 auto;
+    }
+
     header .flex .logo .logo-txt {
+        max-width: calc(100% - 5.2rem);
         height: 3.8rem;
+        object-fit: contain;
     }
 
     header .navbar {
@@ -4375,7 +4403,7 @@ header .flex .navbar ul {
 
 @media (max-width: 768px) {
     .veltora-whatsapp-float {
-        left: 16px;
+        left: max(16px, env(safe-area-inset-left));
         bottom: max(16px, env(safe-area-inset-bottom));
         width: 58px;
         height: 58px;
@@ -4401,10 +4429,13 @@ header .flex .navbar ul {
     }
 
     .veltora-back-to-top {
+        display: none;
         right: 16px;
         bottom: max(16px, env(safe-area-inset-bottom));
         width: 54px;
         height: 54px;
+        visibility: hidden;
+        pointer-events: none;
     }
 
     .veltora-back-tooltip {
@@ -4883,3 +4914,316 @@ header .flex .navbar ul {
         line-height: 1.5;
     }
 }
+
+/* Consistent mobile reading rhythm for shared shell and homepage content. */
+@media (max-width: 600px) {
+    html { scroll-padding-top: 4.5rem; }
+
+    body { overflow-x: clip; }
+
+    .veltora-back-to-top {
+        display: none;
+        visibility: hidden;
+        pointer-events: none;
+    }
+
+    .veltora-whatsapp-float {
+        left: max(14px, env(safe-area-inset-left));
+        bottom: max(14px, env(safe-area-inset-bottom));
+    }
+
+    .slider-item { padding-inline: 22px; }
+    .slider-item h2,
+    .slider-item h1 { max-width: 19ch; font-size: clamp(30px, 8vw, 36px); line-height: 1.12; }
+    .slider-item p { max-width: 40ch; font-size: 15px; line-height: 1.55; text-align: left; }
+    .slider-item .btn,
+    .slider-item a.btn { min-height: 46px; padding: 12px 17px; font-size: 14px; }
+
+    .about-section { padding: 48px 20px; }
+    .about-container { gap: 28px; }
+    .about-content h2 { font-size: clamp(27px, 7vw, 32px); line-height: 1.2; }
+    .about-content p { font-size: 15px; line-height: 1.65; text-align: left; }
+    .about-features {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px 10px;
+    }
+
+    .title,
+    .section-header h2,
+    .industries h3 { line-height: 1.2; }
+
+    .veltora-whatsapp-float,
+    .veltora-back-to-top { z-index: 1000; }
+}
+
+/* Slightly lighter type scale for the homepage on narrow screens. */
+@media (max-width: 600px) {
+    .ps-left h2,
+    .ps-right h2,
+    .industries h3,
+    .featured-products .section-header h2,
+    .cta-content h2 {
+        font-size: clamp(23px, 6.5vw, 28px);
+        line-height: 1.2;
+    }
+
+    .ps-desc,
+    .industries .description,
+    .featured-products .section-header p,
+    .cta-content p {
+        font-size: 13px;
+        line-height: 1.55;
+    }
+
+    .point h4,
+    .feature h4,
+    .industry-content h4,
+    .featured-main h3 { font-size: 15px; }
+
+    .point p,
+    .feature p,
+    .industry-content p { font-size: 12px; }
+}
+
+@media (max-width: 600px) {
+    .why-left h2,
+    .quality .section-title {
+        font-size: clamp(25px, 6.5vw, 28px);
+        line-height: 1.18;
+    }
+
+    .why-left p,
+    .quality .section-desc {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
+    .quality .section-desc {
+        margin: 12px auto 28px;
+    }
+
+    .why-left h5,
+    .quality .section-tag {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 600px) {
+    .cta-info {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        align-items: start;
+        gap: 10px;
+        width: 100%;
+    }
+
+    .cta-info > div {
+        min-width: 0;
+        align-items: flex-start;
+        gap: 8px;
+        font-size: 12px;
+        line-height: 1.4;
+    }
+
+    .cta-info > div > i {
+        flex: 0 0 20px;
+        margin-top: 2px;
+        font-size: 17px;
+    }
+
+    .cta-info p {
+        min-width: 0;
+        margin: 0;
+        overflow-wrap: anywhere;
+    }
+}
+
+@media (max-width: 600px) {
+    .ps-right .option-btn {
+        min-height: 42px;
+        padding: 9px 14px;
+        font-size: 13px;
+    }
+
+    .faqs-section {
+        margin-block: 14px;
+        padding: 16px;
+    }
+
+    .faqs-section h2 {
+        margin-bottom: 24px;
+    }
+
+    .faqs {
+        gap: 12px;
+    }
+
+    .faqs .box {
+        padding: 14px 16px;
+        border-radius: 12px;
+    }
+
+    .question {
+        gap: 12px;
+        line-height: 1.35;
+    }
+
+    .question i {
+        flex: 0 0 32px;
+        width: 32px;
+        height: 32px;
+    }
+
+    .answer {
+        margin-top: 8px;
+    }
+}
+
+@media (max-width: 600px) {
+    .about-section .about-image {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        align-items: stretch;
+        gap: 10px;
+        width: 100%;
+    }
+
+    .about-section .about-image > img {
+        grid-column: 1 / -1;
+        width: 100%;
+    }
+
+    .about-section .experience-box,
+    .about-section .about-tagline {
+        position: static;
+        width: 100%;
+        max-width: none;
+        min-width: 0;
+        min-height: 76px;
+        margin: 0;
+        padding: 12px;
+        border-radius: 12px;
+    }
+
+    .about-section .experience-box h3 {
+        font-size: 24px;
+        line-height: 1.05;
+    }
+
+    .about-section .experience-box p,
+    .about-section .about-tagline p {
+        margin: 0;
+        font-size: 12px;
+        line-height: 1.35;
+    }
+}
+
+@media (max-width: 600px) {
+    .btn,
+    .option-btn,
+    .delete-btn,
+    .white-btn2,
+    .about-btn,
+    .btn-primary,
+    .btn-outline {
+        min-height: 44px;
+        padding: 9px 16px;
+        font-size: 13px;
+        line-height: 1.25;
+    }
+
+    .why-left > .btn {
+        width: auto;
+        max-width: 100%;
+        min-height: 44px;
+        padding: 9px 18px;
+    }
+
+    .cta-buttons .btn {
+        min-height: 44px;
+        padding: 10px 12px;
+        font-size: 13px;
+    }
+}
+
+/* Compact the home page Why Veltora section on phones. */
+@media (max-width: 600px) {
+    .why-veltora {
+        padding: 32px 16px;
+    }
+
+    .why-veltora > .container {
+        padding-inline: 0;
+    }
+
+    .why-grid {
+        width: 100%;
+        margin-inline: auto;
+        gap: 18px;
+    }
+
+    .why-left h2 {
+        margin: 8px 0;
+        font-size: clamp(24px, 6.2vw, 28px);
+        line-height: 1.18;
+    }
+
+    .why-left p {
+        margin-bottom: 14px;
+    }
+
+    .why-right {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        align-items: stretch;
+        gap: 12px;
+    }
+
+    .why-card {
+        min-width: 0;
+        padding: 12px;
+        border-radius: 13px;
+    }
+
+    .why-icon {
+        width: 34px;
+        height: 34px;
+        margin-bottom: 8px;
+        font-size: 16px;
+    }
+
+    .why-card h4 {
+        margin-bottom: 5px;
+        font-size: 13px;
+        line-height: 1.25;
+        overflow-wrap: anywhere;
+    }
+
+    .why-card p {
+        margin: 0;
+        font-size: 12px;
+        line-height: 1.4;
+        overflow-wrap: anywhere;
+    }
+
+    .why-card::after {
+        width: 30px;
+        height: 2px;
+        margin-top: 8px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+    .why-right {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+    }
+
+    .why-card {
+        min-width: 0;
+        padding: 18px;
+    }
+}
+
+
+
+

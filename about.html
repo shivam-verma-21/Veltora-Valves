@@ -342,10 +342,11 @@
             </div>
 
             <!-- CARDS -->
-            <div class="process-grid stagger ">
+            <div class="process-grid about-process-swiper swiper" aria-label="Our process">
+                <div class="swiper-wrapper">
 
                 <!-- CARD 1 -->
-                <div class="process-card">
+                <div class="process-card swiper-slide">
                     <img src="assets/Company Photos/Designing.png" alt="VELTORA engineers planning industrial valve designs">
                     <div class="card-content">
                         <h3>01 Design</h3>
@@ -355,7 +356,7 @@
                 </div>
 
                 <!-- CARD 2 -->
-                <div class="process-card">
+                <div class="process-card swiper-slide">
                     <img src="assets/Company Photos/Drilling Department.png" alt="Valve Manufacturing Gujarat">
                     <div class="card-content">
                         <h3>02 Manufacturing</h3>
@@ -365,7 +366,7 @@
                 </div>
 
                 <!-- CARD 3 -->
-                <div class="process-card">
+                <div class="process-card swiper-slide">
                     <img src="assets/Company Photos/Pneumatic testing.png" alt="Valve Testing India">
                     <div class="card-content">
                         <h3>03 Quality Testing</h3>
@@ -375,7 +376,7 @@
                 </div>
 
                 <!-- CARD 4 -->
-                <div class="process-card">
+                <div class="process-card swiper-slide">
                     <img src="assets/Company Photos/dispatch unit.png" alt="Valve Delivery India">
                     <div class="card-content">
                         <h3>04 Delivery</h3>
@@ -383,6 +384,10 @@
                             logistics.</p>
                     </div>
                 </div>
+
+                </div>
+
+                <div class="swiper-pagination about-process-pagination" aria-label="Process slides"></div>
 
             </div>
 
@@ -860,6 +865,43 @@
 
     <!-- Linking Swiper Script -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+    <script>
+        (() => {
+            const slider = document.querySelector('.about-process-swiper');
+            if (!slider || typeof Swiper === 'undefined') return;
+
+            const mobileView = window.matchMedia('(max-width: 600px)');
+            let processSwiper;
+
+            const syncProcessSlider = () => {
+                if (mobileView.matches && !processSwiper) {
+                    processSwiper = new Swiper(slider, {
+                        slidesPerView: 1.08,
+                        spaceBetween: 14,
+                        speed: 450,
+                        grabCursor: true,
+                        allowTouchMove: true,
+                        autoplay: {
+                            delay: 3000,
+                            disableOnInteraction: false,
+                            pauseOnMouseEnter: true
+                        },
+                        watchOverflow: true,
+                        pagination: {
+                            el: slider.querySelector('.about-process-pagination'),
+                            clickable: true
+                        }
+                    });
+                } else if (!mobileView.matches && processSwiper) {
+                    processSwiper.destroy(true, true);
+                    processSwiper = undefined;
+                }
+            };
+
+            syncProcessSlider();
+            mobileView.addEventListener('change', syncProcessSlider);
+        })();
+    </script>
 
     <div id="footer"></div>
 

@@ -8799,3 +8799,754 @@
     }
 
 }
+
+@media (max-width: 768px) {
+    .ball-quality-content > p,
+    .ball-capability-card p,
+    .veltora-product-card__description,
+    .op-tech__intro-content > p,
+    .op-features__construction-content > p {
+        line-height: 1.65;
+        text-align: left;
+    }
+}
+
+/* Mobile refinement for product category and detail layouts. */
+@media (max-width: 700px) {
+    .ball-hero,
+    .product-hero,
+    .product-category-hero { padding: 3rem 20px; }
+
+    .ball-hero-container { min-height: 0; outline: 0; }
+    .ball-hero h1,
+    .product-hero h1,
+    .product-category-hero h1 { font-size: clamp(28px, 7.5vw, 34px); line-height: 1.15; }
+
+    .ball-hero p,
+    .product-hero p,
+    .product-category-hero p { font-size: 15px; line-height: 1.6; text-align: left; }
+
+    .ball-hero img,
+    .product-hero img { max-width: 100%; height: auto; object-fit: contain; }
+
+    .product-card,
+    .veltora-product-card { min-width: 0; }
+
+    .product-card p,
+    .product-card__description,
+    .veltora-product-card__description,
+    .product-description,
+    .product-intro p,
+    .ball-quality-content > p,
+    .ball-capability-card p,
+    .op-tech__intro-content > p,
+    .op-features__construction-content > p { text-align: left; line-height: 1.6; }
+
+    .product-card h2,
+    .product-card h3,
+    .veltora-product-card h2,
+    .veltora-product-card h3 { font-size: clamp(19px, 5vw, 23px); line-height: 1.25; }
+
+    .product-card img,
+    .veltora-product-card img { max-width: 100%; height: auto; object-fit: contain; }
+
+    .product-specifications,
+    .specifications,
+    .technical-specifications,
+    .table-responsive { max-width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+    .product-specifications table,
+    .specifications table,
+    .technical-specifications table,
+    .table-responsive table { min-width: 34rem; }
+
+    .product-detail img,
+    .technical-diagram img,
+    .product-gallery img { max-width: 100%; height: auto; object-fit: contain; }
+
+    .product-detail button,
+    .product-detail .btn,
+    .product-detail a.btn { min-height: 44px; }
+}
+
+@media (max-width: 380px) {
+    .ball-hero,
+    .product-hero,
+    .product-category-hero { padding-inline: 17px; }
+}
+
+/* Compact mobile typography and vertical rhythm for individual product pages. */
+@media (max-width: 600px) {
+    .veltora-product-banner__container,
+    .veltora-product-banner__content,
+    .veltora-product-banner__description {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+    }
+
+    .veltora-product-banner__container {
+        padding: 0 20px 18px;
+    }
+
+    .veltora-banner-breadcrumb {
+        margin-bottom: 20px;
+        padding-top: 12px;
+    }
+
+    .veltora-banner-breadcrumb__list li {
+        font-size: 12px;
+        line-height: 1.4;
+    }
+
+    .veltora-product-banner__eyebrow {
+        margin-bottom: 8px;
+        font-size: 12px;
+    }
+
+    .veltora-product-banner__content h1 {
+        margin-bottom: 10px;
+        font-size: clamp(27px, 7.2vw, 32px);
+        line-height: 1.14;
+        letter-spacing: -.5px;
+    }
+
+    .veltora-product-banner__description {
+        font-size: 13.5px;
+        line-height: 1.55;
+        text-align: left;
+        overflow-wrap: anywhere;
+    }
+
+    .veltora-product-banner__actions {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 9px;
+        margin-top: 14px;
+    }
+
+    .veltora-product-banner__button {
+        min-height: 42px;
+        padding: 9px 12px;
+        font-size: 13px;
+    }
+
+    .veltora-product-showcase {
+        padding: 30px 0 38px;
+    }
+
+    .veltora-product-showcase__container {
+        padding-inline: 18px;
+    }
+
+    .veltora-products-intro {
+        margin-bottom: 20px;
+    }
+
+    .veltora-products-intro__eyebrow {
+        font-size: 12px;
+        letter-spacing: .12em;
+    }
+
+    .veltora-products-intro h2 {
+        font-size: clamp(23px, 6.2vw, 27px);
+        line-height: 1.18;
+    }
+
+    .veltora-products-intro > p {
+        font-size: 13.5px;
+        line-height: 1.6;
+        text-align: left;
+    }
+
+    .veltora-product-card__details {
+        padding: 20px 17px 18px;
+    }
+
+    .veltora-product-card__eyebrow p {
+        font-size: 12px;
+        line-height: 1.4;
+    }
+
+    .veltora-product-card__title {
+        font-size: clamp(19px, 5.2vw, 22px);
+        line-height: 1.22;
+    }
+
+    .veltora-product-card__description {
+        font-size: 13.5px;
+        line-height: 1.58;
+    }
+
+    .veltora-product-specifications__row {
+        font-size: 12px;
+        line-height: 1.45;
+    }
+
+    .veltora-product-button {
+        min-height: 44px;
+        font-size: 12px;
+    }
+
+    .veltora-drawings__title {
+        font-size: clamp(23px, 6vw, 27px);
+        line-height: 1.2;
+    }
+
+    .veltora-drawings__intro,
+    .veltora-drawings__note p {
+        font-size: 14px;
+        line-height: 1.6;
+        text-align: left;
+    }
+
+    .veltora-drawing-card__heading h3 {
+        font-size: 17px;
+        line-height: 1.3;
+    }
+
+    .op-tech {
+        padding: 36px 0;
+    }
+
+    .op-tech__container {
+        width: calc(100% - 40px);
+    }
+
+    .op-tech__intro {
+        margin-bottom: 22px;
+    }
+
+    .op-tech__eyebrow {
+        font-size: 11px;
+        letter-spacing: .1em;
+    }
+
+    .op-tech__intro h2 {
+        margin-bottom: 10px;
+        font-size: 26px;
+        line-height: 1.18;
+    }
+
+    .op-tech__intro-content > p {
+        font-size: 14px;
+        line-height: 1.6;
+        text-align: left;
+    }
+
+    .op-tech__panel-heading h3,
+    .op-tech__application h3 {
+        font-size: 17px;
+        line-height: 1.3;
+    }
+
+    .op-tech__panel-description,
+    .op-tech__application p,
+    .op-tech__row-content p,
+    .op-tech__benefit p {
+        font-size: 13px;
+        line-height: 1.55;
+    }
+
+    .op-tech__row-content strong,
+    .op-tech__benefit strong {
+        font-size: 14px;
+    }
+
+    .op-tech__table-wrap {
+        max-width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .op-tech__table {
+        min-width: 520px;
+    }
+
+    .op-tech__table thead th,
+    .op-tech__table tbody td {
+        font-size: 12px;
+        line-height: 1.5;
+    }
+}
+
+@media (max-width: 360px) {
+    .veltora-product-banner__container { padding-inline: 16px; }
+    .veltora-product-showcase__container { padding-inline: 14px; }
+    .op-tech__container { width: calc(100% - 32px); }
+}
+
+@media (max-width: 480px) {
+    .veltora-product-banner__container {
+        padding: 0 18px 14px;
+    }
+
+    .veltora-banner-breadcrumb {
+        margin-bottom: 14px;
+        padding-top: 10px;
+    }
+
+    .veltora-banner-breadcrumb__list {
+        column-gap: 4px;
+        row-gap: 3px;
+    }
+
+    .veltora-product-banner__eyebrow {
+        margin-bottom: 6px;
+        font-size: 11px;
+    }
+
+    .veltora-product-banner__content h1 {
+        margin-bottom: 8px;
+        font-size: clamp(25px, 6.4vw, 29px);
+        line-height: 1.12;
+        letter-spacing: -.35px;
+    }
+
+    .veltora-product-banner__description {
+        font-size: 13px;
+        line-height: 1.48;
+    }
+}
+
+@media (max-width: 600px) {
+    .veltora-product-banner__button,
+    .veltora-product-button,
+    .ball-selection-button,
+    .op-specs__cta-btn,
+    .op-tech__cta-button,
+    .op-features__button,
+    .op-applications__button,
+    .op-faq-cta__quote-btn,
+    .op-faq-cta__contact-btn,
+    .ball-hero .ball-buttons .option-btn,
+    .ball-hero .ball-buttons .white-btn2 {
+        min-height: 44px;
+        padding: 9px 13px;
+        font-size: 12.5px;
+        line-height: 1.25;
+    }
+
+    .veltora-product-actions {
+        gap: 8px;
+    }
+
+    .op-tech__cta-button,
+    .op-features__button,
+    .op-applications__button,
+    .op-specs__cta-btn {
+        width: auto;
+        max-width: 100%;
+    }
+}
+
+/* Compact mobile layout for product category pages. */
+@media (max-width: 600px) {
+    .ball-hero {
+        padding: 22px 18px 26px;
+    }
+
+    .ball-breadcrumb {
+        gap: 8px;
+        margin-bottom: 18px;
+        font-size: 12px;
+        line-height: 1.4;
+    }
+
+    .ball-eyebrow {
+        gap: 9px;
+        margin-bottom: 12px;
+        font-size: 11px;
+    }
+
+    .ball-hero h1 {
+        margin-bottom: 14px;
+        font-size: clamp(26px, 7vw, 31px);
+        line-height: 1.16;
+    }
+
+    .ball-description {
+        margin-bottom: 18px;
+        font-size: 14px;
+        line-height: 1.55;
+    }
+
+    .ball-hero .ball-buttons {
+        gap: 9px;
+    }
+
+    .ball-hero .ball-buttons .option-btn,
+    .ball-hero .ball-buttons .white-btn2 {
+        min-height: 42px;
+        padding: 9px 13px;
+        font-size: 13px;
+    }
+
+    .ball-trust {
+        gap: 10px 14px;
+        margin-top: 16px;
+    }
+
+    .ball-trust span {
+        gap: 6px;
+        font-size: 11px;
+    }
+
+    .ball-hero-image {
+        min-height: 22rem;
+        margin-top: 0;
+    }
+
+    .ball-hero-image img {
+        max-height: 22rem;
+    }
+
+    .ball-products,
+    .ball-tech,
+    .ball-trust-section {
+        padding: 36px 18px;
+    }
+
+    .ball-section-heading,
+    .ball-tech-heading,
+    .ball-trust-heading {
+        margin-bottom: 22px;
+    }
+
+    .ball-section-label,
+    .ball-tech-label,
+    .ball-trust-label {
+        margin-bottom: 8px;
+        font-size: 11px;
+    }
+
+    .ball-section-heading h2,
+    .ball-tech-heading h2,
+    .ball-trust-heading h2 {
+        margin-bottom: 10px;
+        font-size: clamp(23px, 6.2vw, 26px);
+        line-height: 1.2;
+    }
+
+    .ball-section-heading p,
+    .ball-tech-heading > p,
+    .ball-trust-heading > p {
+        font-size: 14px;
+        line-height: 1.55;
+    }
+
+    .ball-products-grid {
+        gap: 16px;
+    }
+
+    .ball-product-images {
+        min-height: 17rem;
+        gap: 10px;
+        padding: 14px 12px 24px;
+    }
+
+    .ball-product-image {
+        height: 14rem;
+    }
+
+    .ball-product-info {
+        padding: 16px;
+    }
+
+    .ball-product-number {
+        margin-bottom: 7px;
+        font-size: 10px;
+    }
+
+    .ball-product-info h3 {
+        margin-bottom: 8px;
+        font-size: 18px;
+        line-height: 1.3;
+    }
+
+    .ball-product-info p {
+        margin-bottom: 12px;
+        font-size: 14px;
+        line-height: 1.55;
+    }
+
+    .ball-product-link {
+        gap: 8px;
+        padding: 7px 9px;
+        font-size: 13px;
+    }
+
+    .ball-tech-grid {
+        gap: 12px;
+    }
+
+    .ball-tech-card,
+    .ball-quality-layout,
+    .ball-capability-card,
+    .ball-standards-panel {
+        padding: 16px;
+    }
+
+    .ball-tech-card-heading h3,
+    .ball-quality-content h3,
+    .ball-capabilities-heading h3,
+    .ball-standards-content h3 {
+        font-size: 18px;
+        line-height: 1.3;
+    }
+
+    .ball-tech-card p,
+    .ball-tech-column li,
+    .ball-tech-inline,
+    .ball-tech-benefit p,
+    .ball-quality-content > p,
+    .ball-quality-check p,
+    .ball-capabilities-heading > p,
+    .ball-capability-card p,
+    .ball-standards-content > p,
+    .ball-standards-note {
+        font-size: 13px;
+        line-height: 1.55;
+    }
+
+    .ball-tech-card-heading p,
+    .ball-quality-check h4,
+    .ball-capability-card h4,
+    .ball-tech-benefit h4 {
+        font-size: 14px;
+        line-height: 1.35;
+    }
+
+    .ball-quality-layout {
+        gap: 18px;
+        margin-bottom: 32px;
+    }
+
+    .ball-quality-check {
+        gap: 10px;
+        padding: 11px;
+    }
+
+    .ball-capabilities {
+        margin-bottom: 32px;
+    }
+
+    .ball-capabilities-grid {
+        gap: 10px;
+    }
+
+    .ball-capability-card {
+        gap: 10px;
+    }
+
+    .ball-standards-panel {
+        gap: 14px;
+        margin-bottom: 30px;
+    }
+
+    .ball-standard-tags {
+        gap: 7px;
+    }
+
+    .ball-standard-tags span {
+        padding: 6px 8px;
+        font-size: 11px;
+    }
+
+    .faqs-section:has(.ball-faq-heading) {
+        margin-block: 10px;
+        padding: 14px;
+    }
+
+    .ball-faq-heading {
+        margin-bottom: 18px;
+    }
+
+    .ball-faq-heading .ball-trust-label {
+        font-size: 11px;
+        line-height: 1.35;
+    }
+
+    .ball-faq-heading h2 {
+        margin-bottom: 8px;
+        font-size: 22px;
+        line-height: 1.2;
+    }
+
+    .ball-faq-heading > p {
+        font-size: 12px;
+        line-height: 1.5;
+    }
+
+    .faqs-section:has(.ball-faq-heading) .faqs {
+        gap: 10px;
+    }
+
+    .faqs-section:has(.ball-faq-heading) .faqs .box {
+        padding: 12px 14px;
+        border-radius: 11px;
+    }
+
+    .faqs-section:has(.ball-faq-heading) .question {
+        gap: 10px;
+        font-size: 13px;
+        line-height: 1.35;
+    }
+
+    .faqs-section:has(.ball-faq-heading) .question i {
+        flex-basis: 30px;
+        width: 30px;
+        height: 30px;
+    }
+
+    .faqs-section:has(.ball-faq-heading) .answer {
+        margin-top: 7px;
+        font-size: 12px;
+        line-height: 1.5;
+    }
+
+    .ball-final-cta {
+        gap: 14px;
+        margin-top: 32px;
+        padding: 18px;
+    }
+
+    .ball-final-cta-content h2 {
+        margin-bottom: 10px;
+        font-size: 23px;
+        line-height: 1.25;
+    }
+
+    .ball-final-cta-content > p {
+        margin-bottom: 14px;
+        font-size: 14px;
+        line-height: 1.55;
+    }
+
+    .ball-final-cta-points {
+        gap: 8px 12px;
+        margin-bottom: 16px;
+    }
+
+    .ball-final-cta-points span {
+        font-size: 12px;
+    }
+
+    .ball-final-cta-actions {
+        gap: 9px;
+    }
+
+    .ball-final-cta-primary,
+    .ball-final-cta-secondary {
+        min-height: 42px;
+        padding: 9px 12px;
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 380px) {
+    .ball-hero {
+        padding-inline: 15px;
+    }
+
+    .ball-products,
+    .ball-tech,
+    .ball-trust-section {
+        padding-inline: 15px;
+    }
+
+    .ball-product-images {
+        min-height: 15rem;
+        padding-inline: 9px;
+    }
+
+    .ball-product-image {
+        height: 12.5rem;
+    }
+
+    .ball-product-info {
+        padding: 14px;
+    }
+
+    .ball-final-cta {
+        padding: 16px;
+    }
+}
+
+@media (max-width: 600px) {
+    .ball-products-grid.gate-valve,
+    .ball-products-grid.globe-valve {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+/* Hide low-priority ball-valve sections on mobile; retain them on desktop. */
+@media (max-width: 700px) {
+    #ball-technical .ball-tech-types,
+    #ball-technical .ball-tech-benefits,
+    #ball-applications .ball-selection,
+    #ball-valve-trust > .ball-trust-container > .ball-trust-heading,
+    #ball-valve-trust > .ball-trust-container > .ball-quality-layout,
+    #ball-valve-trust > .ball-trust-container > .ball-capabilities,
+    #ball-valve-trust > .ball-trust-container > .ball-standards-panel {
+        display: none;
+    }
+
+    #ball-valve-trust {
+        padding-block: 12px;
+    }
+}
+
+/* Simplify individual product feature sections on mobile. */
+@media (max-width: 650px) {
+    .op-features__header,
+    .op-features__grid,
+    .op-features__construction-visual {
+        display: none;
+    }
+
+    .op-features {
+        padding-block: 24px;
+    }
+
+    .op-features__construction {
+        grid-template-columns: minmax(0, 1fr);
+        margin-top: 0;
+    }
+
+    .op-features__construction-content {
+        padding: 18px;
+    }
+}
+
+/* Keep the category hero actions side by side on phones. */
+@media (max-width: 600px) {
+    .ball-hero .ball-buttons {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        align-items: stretch;
+        gap: 8px;
+    }
+
+    .ball-hero .ball-buttons .option-btn,
+    .ball-hero .ball-buttons .white-btn2 {
+        box-sizing: border-box;
+        width: 100%;
+        min-width: 0;
+        min-height: 48px;
+        padding: 8px 6px;
+        gap: 6px;
+        font-size: clamp(11px, 3.2vw, 13px);
+        line-height: 1.2;
+        text-align: center;
+        white-space: normal;
+        overflow-wrap: anywhere;
+    }
+
+    .ball-hero .ball-buttons i {
+        flex: 0 0 auto;
+        font-size: 13px;
+    }
+}

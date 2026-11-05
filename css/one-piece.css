@@ -242,3 +242,44 @@ body:has(.veltora-product-banner) :is(a, button, summary):focus-visible {
         transition-duration: .01ms !important;
     }
 }
+
+@media (max-width: 600px) {
+    body:has(.veltora-product-banner) .veltora-product-banner,
+    body:has(.veltora-product-banner) .veltora-product-banner__container,
+    body:has(.veltora-product-banner) .veltora-product-banner__overlay {
+        min-height: 0;
+    }
+
+    body:has(.veltora-product-banner) .veltora-product-banner__container {
+        padding: 8px 12px 14px;
+    }
+
+    body:has(.veltora-product-banner) .veltora-banner-breadcrumb {
+        margin: 0 0 16px;
+    }
+
+    body:has(.veltora-product-banner) .veltora-product-banner__content {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    body:has(.veltora-product-banner) .veltora-product-banner__eyebrow {
+        margin-bottom: 6px;
+        font-size: 1.1rem;
+        letter-spacing: .1em;
+    }
+
+    body:has(.veltora-product-banner) .veltora-product-banner__content h1 {
+        max-width: 100%;
+        margin-bottom: 9px;
+        font-size: clamp(2.6rem, 6.5vw, 3.2rem);
+        line-height: 1.12;
+        letter-spacing: -.03em;
+    }
+
+    body:has(.veltora-product-banner) .veltora-product-banner__description {
+        max-width: 100%;
+        font-size: 1.4rem;
+        line-height: 1.5;
+    }
+}

@@ -211,26 +211,24 @@ function initializeAutocomplete() {
         btn.classList.toggle('fa-xmark');
     });
 
-    const myNum = document.querySelectorAll('.count');
-    // console.log(myNum)
+    const myNum = document.querySelectorAll('.count, .counter');
     let speed = 200;
 
     let started = false;
 
     function startCounter() {
         myNum.forEach((myCount) => {
-            // console.log(myCount.innerText);
-            let target_count = myCount.dataset.count;
-            let init_count = +myCount.innerText;
-            // console.log(target_count);
+            const targetCount = Number(myCount.dataset.count ?? myCount.dataset.target);
+            let currentCount = Number(myCount.textContent) || 0;
+            if (!Number.isFinite(targetCount) || targetCount <= currentCount) return;
 
-            let new_increment_num = Math.max(1, Math.floor(target_count / speed));
+            const increment = Math.max(1, Math.ceil((targetCount - currentCount) / speed));
 
             const updateNumber = () => {
-                init_count += new_increment_num;
-                myCount.innerText = init_count;
+                currentCount = Math.min(currentCount + increment, targetCount);
+                myCount.textContent = String(currentCount);
 
-                if (init_count < target_count) {
+                if (currentCount < targetCount) {
                     setTimeout(() => {
                         updateNumber();
                     }, 10);
@@ -239,14 +237,18 @@ function initializeAutocomplete() {
             updateNumber();
         });
     }
-    const observer = new IntersectionObserver((entries) => {
-        if (entries[0].isIntersecting && !started) {
-            startCounter();
-            started = true;
-        }
-    });
+    const counterSection = document.querySelector('.counter-sec, .stats-section');
+    if (counterSection && myNum.length) {
+        const observer = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting && !started) {
+                startCounter();
+                started = true;
+                observer.disconnect();
+            }
+        });
 
-    observer.observe(document.querySelector('.counter-sec'));
+        observer.observe(counterSection);
+    }
 
 }
 

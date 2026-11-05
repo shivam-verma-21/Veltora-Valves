@@ -194,7 +194,7 @@
 }
 
 .heading {
-    min-height: 40vh;
+    min-height: 25vh;
     display: flex;
     flex-flow: column;
     align-items: center;
@@ -477,6 +477,11 @@ strong {
     .stat-box h2 {
         font-size: 36px;
     }
+
+    .container {
+        gap: 5px;
+    }
+
 }
 
 
@@ -545,6 +550,18 @@ strong {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
+}
+
+.process-grid.swiper {
+    overflow: visible;
+}
+
+.process-grid > .swiper-wrapper {
+    display: contents;
+}
+
+.process-grid > .swiper-wrapper > .process-card {
+    width: auto;
 }
 
 /* CARD */
@@ -931,7 +948,7 @@ strong {
     .why-card2 {
         min-width: 300px;
     }
-    
+
 }
 
 
@@ -965,6 +982,14 @@ strong {
     overflow: hidden;
     position: relative;
     gap: 20px;
+    cursor: grab;
+    touch-action: pan-y;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.cert-slider.is-dragging {
+    cursor: grabbing;
 }
 
 /* GROUP */
@@ -1308,7 +1333,7 @@ strong {
         padding: 42px 16px;
     }
 
-    .about-showcase > .container {
+    .about-showcase>.container {
         width: 100%;
         gap: 22px;
     }
@@ -1415,13 +1440,20 @@ strong {
     }
 
     .process-grid {
-        grid-template-columns: minmax(0, 1fr);
-        gap: 14px;
+        display: block;
+        overflow: hidden;
+        padding-bottom: 26px;
+    }
+
+    .process-grid > .swiper-wrapper {
+        display: flex;
     }
 
     .process-card {
         display: flex;
         flex-direction: column;
+        width: min(88%, 420px);
+        flex-shrink: 0;
         border: 1px solid rgba(11, 44, 95, .12);
         border-radius: 14px;
         background: var(--white-color);
@@ -1434,7 +1466,7 @@ strong {
 
     .process-card img {
         width: 100%;
-        height: 150px;
+        height: 250px;
         object-fit: cover;
         object-position: center;
     }
@@ -1457,7 +1489,7 @@ strong {
 
     .card-content h3 {
         color: var(--first-color);
-        font-size: 16px;
+        font-size: 17px;
         line-height: 1.25;
         overflow-wrap: anywhere;
     }
@@ -1466,13 +1498,32 @@ strong {
     .card-content p.reveal {
         display: block;
         margin-top: 6px;
-        font-size: 12px;
+        font-size: 13px;
         line-height: 1.5;
         color: var(--text-color);
         opacity: 1;
         visibility: visible;
         transform: none;
         animation: none;
+    }
+
+    .about-process-pagination {
+        bottom: 0 !important;
+    }
+
+    .about-process-pagination .swiper-pagination-bullet {
+        width: 7px;
+        height: 7px;
+        margin: 0 4px !important;
+        background: var(--first-color);
+        opacity: .28;
+    }
+
+    .about-process-pagination .swiper-pagination-bullet-active {
+        width: 18px;
+        border-radius: 999px;
+        background: var(--accent-color);
+        opacity: 1;
     }
 
     .why-section {
@@ -1818,7 +1869,7 @@ strong {
     }
 
     .cta-section2 .cta-buttons a,
-    .cta-section2 .cta-content > a {
+    .cta-section2 .cta-content>a {
         min-height: 44px;
         padding: 12px 15px;
         font-size: 14px;
@@ -1832,6 +1883,7 @@ strong {
 }
 
 @media (max-width: 360px) {
+
     .process-section,
     .why-section,
     .values-section {
@@ -1840,7 +1892,7 @@ strong {
     }
 
     .process-card img {
-        height: 132px;
+        height: 225px;
     }
 
     .why-card2,
@@ -1868,5 +1920,155 @@ strong {
 
     .cert-card {
         scroll-snap-align: start;
+    }
+}
+
+@media (max-width: 600px) {
+    .about-content p {
+        text-align: left;
+    }
+
+    .stats-section {
+        padding: 48px 20px;
+    }
+}
+@media (max-width: 600px) {
+    .about-showcase,
+    .stats-section,
+    .process-section,
+    .why-section,
+    .values-section { padding-inline: 20px; }
+
+    .about-showcase .container { width: 100%; }
+    .about-content p,
+    .about-showcase p,
+    .mission-content p,
+    .quality-content p { text-align: left; line-height: 1.65; }
+
+    .about-showcase h2,
+    .mission-content h2,
+    .quality-content h2 { font-size: clamp(27px, 7vw, 32px); line-height: 1.2; }
+
+    .about-images img,
+    .values-image img { max-width: 100%; height: auto; object-fit: cover; }
+
+    .about-cta a,
+    .cta-section2 .cta-buttons a { min-height: 44px; }
+}
+
+@media (max-width: 600px) {
+    .btn,
+    .option-btn,
+    .white-btn,
+    .white-btn2,
+    .btn-primary,
+    .btn-outline {
+        min-height: 44px;
+        padding: 9px 15px;
+        font-size: 13px;
+        line-height: 1.25;
+    }
+
+    .about-cta a,
+    .cta-section2 .cta-buttons a {
+        padding: 9px 14px;
+        font-size: 13px;
+    }
+}
+
+/* Use the full mobile content column across About page sections. The shared
+   .container adds its own horizontal padding, which was shrinking these grids
+   a second time after each section had already set its phone gutters. */
+@media (max-width: 600px) {
+    .about-showcase > .container,
+    .process-section > .container,
+    .why-section > .container {
+        width: 100%;
+        max-width: none;
+        margin-inline: 0;
+        padding-inline: 0;
+    }
+
+    .about-showcase > .container {
+        gap: 22px;
+    }
+
+    .about-images,
+    .about-content,
+    .process-grid,
+    .why-cards,
+    .values-container,
+    .values-content,
+    .values-image {
+        width: 100%;
+        min-width: 0;
+        max-width: none;
+    }
+
+    .mission-vision > .container {
+        width: calc(100% - 32px);
+        max-width: none;
+        margin-inline: auto;
+        padding-inline: 0;
+    }
+
+    .values-container {
+        gap: 22px;
+        padding-inline: 0;
+    }
+
+    .img-grid {
+        width: 100%;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .img-grid .img-box,
+    .img-grid .img-wide {
+        min-width: 0;
+    }
+
+    .about-images .img-box > img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        max-width: none;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    .about-content p,
+    .section-header p,
+    .why-header p,
+    .mv-content p,
+    .value-item p {
+        max-width: none;
+    }
+}
+
+@media (max-width: 600px) {
+    .cta-section2 .cta-buttons {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+        width: 100%;
+    }
+
+    .cta-section2 .cta-buttons a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 0;
+        min-height: 44px;
+        padding: 8px;
+        font-size: 12px;
+        line-height: 1.2;
+        text-align: center;
+        white-space: nowrap;
+    }
+
+    .cta-section2 .cta-buttons a i {
+        flex: 0 0 auto;
+        margin-left: 4px;
     }
 }

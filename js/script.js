@@ -395,6 +395,60 @@ document.addEventListener("DOMContentLoaded", () => {
     initVeltoraPreloader();
     loadHeader();
     loadFooter();
+
+    document.querySelectorAll('.cert-slider').forEach((slider) => {
+        const groups = Array.from(slider.querySelectorAll('.cert-group'));
+        if (groups.length < 2) return;
+
+        let dragState = null;
+
+        slider.addEventListener('dragstart', (event) => event.preventDefault());
+
+        const finishDrag = (event) => {
+            if (!dragState || (event && event.pointerId !== dragState.pointerId)) return;
+            dragState.animations.forEach((animation) => animation.play());
+            slider.classList.remove('is-dragging');
+            if (slider.hasPointerCapture(dragState.pointerId)) {
+                slider.releasePointerCapture(dragState.pointerId);
+            }
+            dragState = null;
+        };
+
+        slider.addEventListener('pointerdown', (event) => {
+            if (event.pointerType === 'mouse' && event.button !== 0) return;
+
+            const animations = groups.flatMap((group) => group.getAnimations())
+                .filter((animation) => animation.animationName === 'scrollCert' && animation.effect && animation.playState !== 'idle');
+            const firstAnimation = animations[0];
+            const duration = Number(firstAnimation?.effect?.getTiming().duration);
+            const groupWidth = groups[0].getBoundingClientRect().width;
+            if (!firstAnimation || !Number.isFinite(duration) || duration <= 0 || groupWidth <= 0) return;
+
+            dragState = {
+                pointerId: event.pointerId,
+                startX: event.clientX,
+                startTime: Number(firstAnimation.currentTime) || 0,
+                duration,
+                groupWidth,
+                animations,
+            };
+            animations.forEach((animation) => animation.pause());
+            slider.classList.add('is-dragging');
+            slider.setPointerCapture(event.pointerId);
+        });
+
+        slider.addEventListener('pointermove', (event) => {
+            if (!dragState || event.pointerId !== dragState.pointerId) return;
+            const distance = event.clientX - dragState.startX;
+            const offset = (dragState.startTime - distance / dragState.groupWidth * dragState.duration) % dragState.duration;
+            const currentTime = (offset + dragState.duration) % dragState.duration;
+            dragState.animations.forEach((animation) => { animation.currentTime = currentTime; });
+        });
+
+        slider.addEventListener('pointerup', finishDrag);
+        slider.addEventListener('pointercancel', finishDrag);
+        slider.addEventListener('lostpointercapture', finishDrag);
+    });
 });
 
 document.addEventListener("DOMContentLoaded", () => {

@@ -633,3 +633,13 @@ body:has(.glass-product-actions) .ball-product-image:first-child::after {
         grid-template-columns: 1fr;
     }
 }
+
+@media (max-width: 600px) {
+    .glass-spec-btn,
+    .glass-whatsapp-btn {
+        min-height: 44px;
+        padding: 9px 13px;
+        font-size: 13px;
+        line-height: 1.25;
+    }
+}

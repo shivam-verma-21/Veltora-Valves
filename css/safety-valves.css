@@ -604,3 +604,13 @@ body.safety-modal-open {
         grid-template-columns: 1fr;
     }
 }
+
+@media (max-width: 600px) {
+    .safety-spec-btn,
+    .safety-whatsapp-btn {
+        min-height: 44px;
+        padding: 9px 13px;
+        font-size: 13px;
+        line-height: 1.25;
+    }
+}
