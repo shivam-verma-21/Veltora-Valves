@@ -11,7 +11,7 @@
             setting: 'To be specified and verified for the protected system',
             range: 'Confirm pressure, capacity and size limits for the selected model',
             references: 'ASME Section VIII, API 520 / 521 and ISO 4126, as applicable',
-            diagram: 'assets/products/Safety Valves/Diagram Lever Operated Safety Valve (Test Lever Type).jpeg',
+            diagram: '',
             tags: ['Test Lever Type', 'Manual Lift', 'Pressure Relief']
         },
         {
@@ -22,7 +22,7 @@
             setting: 'Set downstream pressure to suit the system requirements',
             range: 'Confirm inlet pressure, outlet pressure, flow and size limits',
             references: 'Applicable pressure control design and project requirements',
-            diagram: 'assets/products/Safety Valves/Diagram Direct Operated Self-Operated Pressure Reducing Valve (PRV).jpg',
+            diagram: '',
             tags: ['Pressure Reducing Valve', 'Self-Operated', 'Pressure Control']
         },
         {
@@ -33,7 +33,7 @@
             setting: 'To be specified and verified for the protected system',
             range: 'Confirm pressure, capacity and size limits for the selected model',
             references: 'ASME Section VIII, API 520 / 521 / 526 and ISO 4126, as applicable',
-            diagram: 'assets/products/Safety Valves/Diagram Spring Loaded Safety Relief Valve (Flanged End).webp',
+            diagram: '',
             tags: ['Spring Loaded', 'Flanged End', 'Pressure Relief']
         },
         {
@@ -44,7 +44,7 @@
             setting: 'To be specified and verified for the protected system',
             range: 'Portfolio range: ½ in (DN15) to 12 in (DN300); confirm model limits',
             references: 'ASME Section VIII, API 520 / 521 / 526 and ISO 4126, as applicable',
-            diagram: 'assets/products/Safety Valves/Diagram Threaded Safety Relief Valve (Compact Type).png',
+            diagram: '',
             tags: ['Compact Type', 'Threaded End', 'Pressure Relief']
         }
     ];
@@ -139,18 +139,25 @@
         if (view) {
             document.querySelectorAll('.safety-thumb').forEach((thumb) => thumb.classList.toggle('active', thumb === view));
             const isDiagram = view.dataset.safetyView === 'diagram';
-            if (isDiagram && currentDiagram) {
-                mainImage.src = currentDiagram;
-                mainImage.alt = `${$('safetyModalProductName').textContent} technical diagram`;
-                mainImage.hidden = false;
-                placeholder.hidden = true;
+            if (isDiagram) {
+                if (currentDiagram) {
+                    mainImage.src = currentDiagram;
+                    mainImage.alt = `${$('safetyModalProductName').textContent} technical diagram`;
+                    mainImage.hidden = false;
+                    placeholder.hidden = true;
+                } else {
+                    mainImage.hidden = true;
+                    placeholder.hidden = false;
+                }
             } else {
                 mainImage.src = currentProductImage;
                 mainImage.alt = currentProductAlt;
                 mainImage.hidden = false;
                 placeholder.hidden = true;
             }
-            $('safetyGalleryCaption').textContent = isDiagram ? 'TECHNICAL DIAGRAM' : 'PRODUCT VIEW';
+            $('safetyGalleryCaption').textContent = isDiagram
+                ? (currentDiagram ? 'TECHNICAL DIAGRAM' : 'TECHNICAL DRAWING PENDING')
+                : 'PRODUCT VIEW';
         }
     });
 

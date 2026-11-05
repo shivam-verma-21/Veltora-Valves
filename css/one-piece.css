@@ -50,6 +50,14 @@ body:has(.veltora-product-banner) .veltora-product-banner#gate-valve-banner {
     background-size: cover;
 }
 
+body:has(.veltora-product-banner) .veltora-product-banner#globe-valves-banner {
+    background-image:
+        linear-gradient(90deg, rgba(5, 22, 49, .92) 0%, rgba(7, 30, 66, .82) 42%, rgba(10, 39, 81, .34) 100%),
+        url("../assets/product-banner/globe-valves-banner.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 body:has(.veltora-product-banner) .veltora-product-banner#automation-banner {
     background-image:
         linear-gradient(90deg, rgba(5, 22, 49, .92) 0%, rgba(7, 30, 66, .82) 42%, rgba(10, 39, 81, .34) 100%),

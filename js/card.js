@@ -1,6 +1,11 @@
+const cardSlider = document.querySelector('.wrapper');
+
+if (cardSlider && typeof Swiper === 'function') {
 const swiper = new Swiper('.wrapper', {
   loop: true,
   spaceBetween: 30,
+  touchStartPreventDefault: false,
+  touchAngle: 45,
 
   autoplay:{
     delay: 5000,
@@ -34,3 +39,4 @@ const swiper = new Swiper('.wrapper', {
     }
   }
 });
+}

@@ -165,7 +165,7 @@
 
 
 
-.heading h3 {
+.heading h1 {
     font-weight: 600;
     font-size: 4.5rem;
     color: var(--title-color);
@@ -1289,5 +1289,584 @@ strong {
 
     .cta-buttons {
         justify-content: center;
+    }
+}
+
+/* About page phone layouts: compact spacing, readable two-up grids and
+   touch-friendly content that does not depend on hover. */
+@media (max-width: 600px) {
+    .heading.about {
+        padding: 28px 16px 22px;
+    }
+
+    .heading.about h1 {
+        font-size: 28px;
+        line-height: 1.15;
+    }
+
+    .about-showcase {
+        padding: 42px 16px;
+    }
+
+    .about-showcase > .container {
+        width: 100%;
+        gap: 22px;
+    }
+
+    .about-content h2 {
+        margin: 8px 0 14px;
+        font-size: clamp(25px, 7vw, 29px);
+        line-height: 1.2;
+        overflow-wrap: anywhere;
+    }
+
+    .about-content h2 small {
+        font-size: 14px;
+        line-height: 1.45;
+    }
+
+    .about-content p {
+        margin-bottom: 12px;
+        font-size: 14px;
+        line-height: 1.6;
+        text-align: left;
+    }
+
+    .about-features {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px 12px;
+        margin-top: 18px;
+    }
+
+    .about-features .feature {
+        gap: 9px;
+    }
+
+    .about-features .feature i {
+        flex: 0 0 38px;
+        padding: 9px;
+        font-size: 18px;
+    }
+
+    .about-features .feature h4 {
+        font-size: 14px;
+        line-height: 1.3;
+    }
+
+    .about-features .feature p {
+        font-size: 12px;
+        line-height: 1.45;
+    }
+
+    .stats-section {
+        padding: 42px 16px;
+    }
+
+    .stats-container {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 22px 12px;
+    }
+
+    .stat-box i {
+        width: 42px;
+        height: 42px;
+        margin-bottom: 8px;
+        font-size: 21px;
+    }
+
+    .stat-box h2 {
+        margin: 5px 0;
+        font-size: 30px;
+        line-height: 1.1;
+    }
+
+    .stat-box p {
+        max-width: 16ch;
+        font-size: 10px;
+        line-height: 1.4;
+        letter-spacing: .07em;
+    }
+
+    .process-section {
+        padding: 44px 16px;
+    }
+
+    .process-section .container {
+        width: 100%;
+    }
+
+    .section-header {
+        margin-bottom: 22px;
+    }
+
+    .section-header h2 {
+        font-size: clamp(26px, 7vw, 30px);
+        line-height: 1.2;
+    }
+
+    .section-header .title h3 {
+        font-size: 15px;
+    }
+
+    .section-header p {
+        margin: 10px auto 0;
+        font-size: 13px;
+        line-height: 1.55;
+    }
+
+    .process-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 14px;
+    }
+
+    .process-card {
+        display: flex;
+        flex-direction: column;
+        border: 1px solid rgba(11, 44, 95, .12);
+        border-radius: 14px;
+        background: var(--white-color);
+        box-shadow: 0 8px 22px rgba(11, 44, 95, .1);
+    }
+
+    .process-card:hover {
+        transform: none;
+    }
+
+    .process-card img {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    /* Keep the people in the portrait source photos inside the short mobile crop. */
+    .process-card:nth-child(1) img,
+    .process-card:nth-child(4) img {
+        object-position: center 28%;
+    }
+
+    .card-content {
+        position: relative;
+        inset: auto;
+        width: 100%;
+        padding: 13px 15px 15px;
+        transform: none;
+        background: var(--white-color);
+        color: var(--text-color);
+    }
+
+    .card-content h3 {
+        color: var(--first-color);
+        font-size: 16px;
+        line-height: 1.25;
+        overflow-wrap: anywhere;
+    }
+
+    .card-content p,
+    .card-content p.reveal {
+        display: block;
+        margin-top: 6px;
+        font-size: 12px;
+        line-height: 1.5;
+        color: var(--text-color);
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        animation: none;
+    }
+
+    .why-section {
+        padding: 44px 16px;
+    }
+
+    .why-section .container {
+        width: 100%;
+    }
+
+    .why-header h5 {
+        margin-bottom: 8px;
+        font-size: 12px;
+        letter-spacing: .2em;
+    }
+
+    .veltora-img {
+        max-width: min(220px, 70vw);
+        margin: 8px auto;
+    }
+
+    .why-header p {
+        margin-top: 8px;
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
+    .section-line {
+        width: 140px;
+        height: 3px;
+        margin: 14px auto 36px;
+    }
+
+    .why-cards {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 14px;
+    }
+
+    .why-card2,
+    .why-card2:nth-child(n) {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(105px, 38%);
+        grid-template-rows: auto auto 1fr;
+        align-items: center;
+        column-gap: 14px;
+        width: 100%;
+        min-width: 0;
+        max-width: none;
+        padding: 14px;
+        border: 1px solid #e3eaf3;
+        text-align: left;
+    }
+
+    .why-card2:last-child:nth-child(odd) {
+        grid-column: auto;
+        width: 100%;
+        justify-self: stretch;
+    }
+
+    .why-card2:hover {
+        transform: none;
+    }
+
+    .why-card2 .icon {
+        position: static;
+        grid-column: 1;
+        grid-row: 1;
+        transform: none;
+        width: 36px;
+        height: 36px;
+        border-width: 2px;
+        font-size: 15px;
+    }
+
+    .why-card2 h3 {
+        grid-column: 1;
+        grid-row: 2;
+        margin: 7px 0 4px;
+        font-size: 13px;
+        line-height: 1.35;
+    }
+
+    .why-card2 h3::after {
+        width: 30px;
+        height: 2px;
+        margin: 6px 0 0;
+    }
+
+    .why-card2 p {
+        grid-column: 1;
+        grid-row: 3;
+        min-height: 0;
+        margin: 0;
+        padding: 0;
+        font-size: 12px;
+        line-height: 1.45;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        animation: none;
+    }
+
+    .why-card2 img {
+        grid-column: 2;
+        grid-row: 1 / 4;
+        width: 100%;
+        height: 120px;
+        border-radius: 9px;
+    }
+
+    .mission-vision {
+        padding: 44px 0;
+    }
+
+    .mission-vision .container {
+        width: calc(100% - 32px);
+    }
+
+    .section-title {
+        margin-bottom: 20px;
+    }
+
+    .section-title h4 {
+        font-size: 14px;
+        letter-spacing: .12em;
+    }
+
+    .section-title .line {
+        width: 135px;
+        height: 3px;
+    }
+
+    .mv-wrapper {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 14px;
+    }
+
+    .mv-content {
+        padding: 22px 18px;
+    }
+
+    .mv-icon {
+        width: 48px;
+        height: 48px;
+        margin-bottom: 13px;
+    }
+
+    .mv-icon i {
+        font-size: 20px;
+    }
+
+    .mv-content h2 {
+        margin-bottom: 12px;
+        font-size: 24px;
+    }
+
+    .mv-content p {
+        margin-bottom: 11px;
+        font-size: 14px;
+        line-height: 1.58;
+    }
+
+    .quote {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
+    .highlight-box {
+        margin-top: 15px;
+        padding: 11px 12px;
+        border-width: 1px;
+        font-size: 13px;
+        line-height: 1.5;
+    }
+
+    .certification-section {
+        padding: 42px 0 32px;
+    }
+
+    .cert-header {
+        margin: 0 16px 22px;
+    }
+
+    .cert-header h2 {
+        font-size: clamp(22px, 6vw, 26px);
+        line-height: 1.2;
+    }
+
+    .cert-line {
+        width: 100px;
+        height: 3px;
+        margin: 9px auto;
+    }
+
+    .cert-slider {
+        gap: 12px;
+    }
+
+    .cert-group {
+        gap: 12px;
+        padding-bottom: 18px;
+        animation-duration: 45s;
+    }
+
+    .cert-card {
+        min-width: 164px;
+        max-width: 164px;
+        min-height: 145px;
+        padding: 13px 12px;
+        border-radius: 10px;
+    }
+
+    .cert-card img {
+        width: 52px;
+        height: 52px;
+        margin-bottom: 7px;
+        object-fit: contain;
+    }
+
+    .cert-card h3 {
+        font-size: 14px;
+        line-height: 1.3;
+    }
+
+    .cert-card p {
+        font-size: 11px;
+        line-height: 1.4;
+    }
+
+    .values-section {
+        margin-bottom: 0;
+        padding: 44px 16px;
+    }
+
+    .values-container {
+        width: 100%;
+        gap: 22px;
+    }
+
+    .values-content,
+    .values-image {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .values-image.reveal-right,
+    .cta-section2 .reveal-left,
+    .cta-section2 .reveal-right {
+        transform: translateX(0);
+    }
+
+    .values-header h2 {
+        margin-bottom: 8px;
+        font-size: 25px;
+    }
+
+    .values-header .line {
+        width: 78px;
+        height: 3px;
+        margin-bottom: 18px;
+    }
+
+    .values-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px 13px;
+    }
+
+    .value-item {
+        gap: 7px;
+    }
+
+    .value-item i {
+        font-size: 22px;
+    }
+
+    .value-item h3 {
+        font-size: 14px;
+        line-height: 1.35;
+    }
+
+    .value-item p {
+        font-size: 12px;
+        line-height: 1.5;
+    }
+
+    .values-quote {
+        margin-top: 20px;
+    }
+
+    .values-quote p {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
+    .values-image img {
+        max-height: 240px;
+    }
+
+    .cta-section2 {
+        padding: 44px 16px 80px;
+    }
+
+    .cta-section2 .cta-container {
+        width: 100%;
+        align-items: stretch;
+        gap: 20px;
+        text-align: left;
+    }
+
+    .cta-section2 .cta-content {
+        order: 1;
+        width: 100%;
+    }
+
+    .cta-section2 .cta-content h2 {
+        margin-bottom: 13px;
+        font-size: clamp(25px, 7vw, 30px);
+        line-height: 1.2;
+    }
+
+    .cta-section2 .cta-content p {
+        font-size: 14px;
+        line-height: 1.58;
+    }
+
+    .cta-section2 .cta-visual {
+        order: 2;
+        width: 100%;
+        margin: 0;
+    }
+
+    .cta-section2 .cta-visual img {
+        display: block;
+        max-height: 260px;
+        object-fit: cover;
+    }
+
+    .cta-section2 .cta-buttons {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 10px;
+    }
+
+    .cta-section2 .cta-buttons a,
+    .cta-section2 .cta-content > a {
+        min-height: 44px;
+        padding: 12px 15px;
+        font-size: 14px;
+        text-align: center;
+    }
+
+    .cta-section2 .cta-contact-links {
+        justify-content: flex-start;
+        margin-bottom: 16px;
+    }
+}
+
+@media (max-width: 360px) {
+    .process-section,
+    .why-section,
+    .values-section {
+        padding-right: 13px;
+        padding-left: 13px;
+    }
+
+    .process-card img {
+        height: 132px;
+    }
+
+    .why-card2,
+    .why-card2:nth-child(n) {
+        grid-template-columns: minmax(0, 1fr) minmax(96px, 38%);
+        column-gap: 10px;
+        padding: 12px;
+    }
+
+    .why-card2 img {
+        height: 112px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .cert-slider {
+        overflow-x: auto;
+        scroll-snap-type: x proximity;
+        scrollbar-width: thin;
+    }
+
+    .cert-group {
+        animation: none;
+    }
+
+    .cert-card {
+        scroll-snap-align: start;
     }
 }

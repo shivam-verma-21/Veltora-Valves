@@ -4095,7 +4095,8 @@
     }
 
     .veltora-products-intro h2 {
-        font-size: 3.2rem;
+        font-size: clamp(2.6rem, 7vw, 2.9rem);
+        line-height: 1.2;
     }
 
     .veltora-products-intro>p {
@@ -4145,7 +4146,8 @@
     }
 
     .veltora-product-card__title {
-        font-size: 2.8rem;
+        font-size: clamp(2rem, 5.6vw, 2.3rem);
+        line-height: 1.28;
     }
 
     .veltora-product-card__description {
@@ -4153,12 +4155,24 @@
     }
 
     .veltora-product-actions {
-        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        align-items: stretch;
+        gap: 10px;
     }
 
     .veltora-product-button {
-        padding: 11px 9px;
-        font-size: 1.2rem;
+        min-width: 0;
+        min-height: 48px;
+        padding: 9px 7px;
+        gap: 6px;
+        font-size: clamp(1.1rem, 3vw, 1.3rem);
+        line-height: 1.25;
+        white-space: normal;
+        text-align: center;
+    }
+
+    .veltora-product-button__arrow {
+        display: none;
     }
 }
 
@@ -4174,7 +4188,7 @@
     }
 
     .veltora-product-card__title {
-        font-size: 2.5rem;
+        font-size: 2.1rem;
     }
 
     .veltora-product-card__image-stage {
@@ -4193,12 +4207,13 @@
     }
 
     .veltora-product-actions {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
     .veltora-product-button {
-        min-height: 46px;
-        font-size: 1.2rem;
+        min-height: 48px;
+        padding-inline: 5px;
+        font-size: 1.1rem;
     }
 }
 

@@ -545,10 +545,13 @@ body.glass-modal-open {
     .glass-product-actions a,
     .glass-product-actions button {
         min-width: 0;
+        min-height: 48px;
         gap: 5px;
         padding: 9px 5px;
-        font-size: clamp(10px, 3vw, 12px);
-        white-space: nowrap;
+        font-size: clamp(11px, 3vw, 12px);
+        line-height: 1.25;
+        white-space: normal;
+        overflow-wrap: anywhere;
     }
 
     .glass-modal {
@@ -591,9 +594,10 @@ body.glass-modal-open {
     }
 
     .glass-spec-row {
-        grid-template-columns: 112px minmax(0, 1fr);
+        grid-template-columns: minmax(92px, 0.72fr) minmax(0, 1.28fr);
         gap: 8px;
-        font-size: 11px;
+        font-size: 12px;
+        line-height: 1.45;
     }
 
     .glass-modal-actions {
